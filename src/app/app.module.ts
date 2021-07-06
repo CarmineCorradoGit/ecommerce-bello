@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { ChisiamoComponent } from './chisiamo/chisiamo.component';
 import { ShopComponent } from './shop/shop.component';
 import { CartComponent } from './cart/cart.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CardComponent } from './shop/card/card.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { CartComponent } from './cart/cart.component';
     HomeComponent,
     ChisiamoComponent,
     ShopComponent,
-    CartComponent
+    CartComponent,
+    CardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
