@@ -8,6 +8,9 @@ import { ShopComponent } from './shop/shop.component';
 import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CardComponent } from './shop/card/card.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { CardComponent } from './shop/card/card.component';
     ChisiamoComponent,
     ShopComponent,
     CartComponent,
-    CardComponent
+    CardComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
