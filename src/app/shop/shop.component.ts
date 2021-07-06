@@ -1,4 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../interface/product.interface';
 
 @Component({
   selector: 'app-shop',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
-  constructor() { }
+  private url = "https://run.mocky.io/v3/06095b9f-3381-4b17-9703-4a54cc265f19"
+
+  products: Product[] = []
+
+  constructor(private http: HttpClient) {
+      this.http.get(this.url, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      }).subscribe(data => {
+        console.log(data)
+      });
+   }
 
   ngOnInit(): void {
   }
