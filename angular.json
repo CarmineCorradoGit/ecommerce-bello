@@ -30,11 +30,11 @@
 							"src/assets"
 						],
 						"styles": [
-							"./node_modules/dist/bootstrap/css/bootstrap.min.css",
+							"./node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"src/styles.scss"
 						],
 						"scripts": [
-							"./node_modules/dist/bootstrap/js/bootstrap.min.js"
+							"./node_modules/bootstrap/dist/js/bootstrap.min.js"
 						]
 					},
 					"configurations": {
