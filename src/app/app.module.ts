@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CardComponent } from './shop/card/card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
