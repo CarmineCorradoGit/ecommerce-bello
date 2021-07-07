@@ -9,17 +9,15 @@ import { Product } from '../interface/product.interface';
 })
 export class ShopComponent implements OnInit {
 
-  private url = "https://run.mocky.io/v3/06095b9f-3381-4b17-9703-4a54cc265f19"
+  private url = "https://run.mocky.io/v3/6e082e65-4097-4bfd-abe0-aa8a3ae4ed09/products"
 
   products: Product[] = []
 
   constructor(private http: HttpClient) {
-      this.http.get<any>(this.url, {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-      }).subscribe(data => {
-        console.log(data)
-      });
-   }
+    this.http.get<any>(this.url).subscribe(data => {
+      this.products = data.products;
+    })
+  }
 
   ngOnInit(): void {
   }
