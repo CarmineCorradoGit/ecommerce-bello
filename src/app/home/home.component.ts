@@ -13,17 +13,17 @@ export class HomeComponent implements OnInit {
       title: 'titolo1',
       description: 'descrizione1',
       button: 'bottone1',
-      img: ''
+      img: 'https://via.placeholder.com/1920x500'
   },    {
       title: 'titolo2',
       description: 'descrizione2',
       button: 'bottone2',
-      img: ''
+      img: 'https://via.placeholder.com/1920x500'
   },    {
       title: 'titolo3',
       description: 'descrizione3',
       button: 'bottone3',
-      img: ''
+      img: 'https://via.placeholder.com/1920x500'
   },
   ]
 
