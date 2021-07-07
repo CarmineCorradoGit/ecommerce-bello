@@ -7,13 +7,13 @@ import { Product } from './interface/product.interface';
 })
 export class AppService {
 
-  private url: string = 'https://3n1dqzwmnn.api.quickmocker.com/';
+  private url: string = 'https://60c8ea647dafc90017ffbcea.mockapi.io/products';
 
   cart: Product[] = []
 
   constructor(private http: HttpClient) { }
 
-  getProducts(){
+  getProducts() {
     return this.http.get<any>(this.url)
   }
 }

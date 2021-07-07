@@ -14,8 +14,13 @@ export class ShopComponent implements OnInit {
   constructor(private appService: AppService) {
     let prodotti = this.appService.getProducts();
     prodotti.subscribe(data => {
-      this.products = data.products;
+      this.products = data;
+      console.log(this.products);
     })
+
+
+
+
   }
 
   ngOnInit(): void {
