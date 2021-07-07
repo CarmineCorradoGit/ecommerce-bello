@@ -9,21 +9,27 @@ import { Product } from '../interface/product.interface';
 })
 export class ShopComponent implements OnInit {
 
-  products: Product[] = []
+  products: Product[] = [];
+  brands: string[] = [];
+  selectedOption: any = 'Any';
 
   constructor(private appService: AppService) {
     let prodotti = this.appService.getProducts();
     prodotti.subscribe(data => {
       this.products = data;
-      console.log(this.products);
+      data.forEach(element => {
+        if(!(this.brands.includes(element.brand))){
+          this.brands.push(element.brand)
+        }
+      });
     })
-
-
-
-
+  }
+ 
+  addCartElement(e: number){
+    let element = this.products.find(element => element.id === e)
+    this.appService.cart.push(element);
   }
 
   ngOnInit(): void {
   }
-
 }

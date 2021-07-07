@@ -11,11 +11,16 @@
     </div>
   </div>
 </section>
-
+<select class="form-select" aria-label="Default select example" [(ngModel)]="selectedOption" >
+  <option value="Any" selected>Any</option>
+  <option *ngFor="let brand of brands" [attr.value]="brand">{{brand}}</option>
+</select>
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <app-card *ngFor="let product of products"></app-card>
+      <ng-container *ngFor="let product of products">
+        <app-card *ngIf="product.brand === selectedOption || selectedOption === 'Any'" [prodotto]="product" (addCartEvent)="addCartElement($event)"></app-card>
+      </ng-container>
     </div>
   </div>
 </div>

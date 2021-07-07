@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from 'src/app/interface/product.interface';
 
 @Component({
   selector: 'app-card',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  @Input() prodotto: Product;
+
+  @Output() addCartEvent = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addCart(){
+    this.addCartEvent.emit(this.prodotto.id);
   }
 
 }
