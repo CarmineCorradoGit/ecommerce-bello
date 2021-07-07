@@ -4,7 +4,7 @@ import { Slide } from 'src/app/interface/slide.interface';
 @Component({
   selector: 'app-slide',
   template: `
-        <div [ngClass]="{'active': isActive}" class="carousel-item">
+        <div [ngClass]="{'active': elements.isActive}" class="carousel-item">
           <img src="{{elements.img}}" alt="">
   
           <div class="container">
@@ -24,10 +24,9 @@ export class SlideComponent implements OnInit {
         title: '',
         description: '',
         button: '',
-        img: ''
+        img: '', 
+        isActive: false
     };
-
-  @Input() isActive = false;
 
   constructor() { }
 
