@@ -14,20 +14,20 @@ export class HomeComponent implements OnInit, OnDestroy {
       title: 'titolo1',
       description: 'descrizione1',
       button: 'bottone1',
-      img: '',
-      isActive: true
+      isActive: true,
+      img: 'https://via.placeholder.com/1920x500'
   },    {
       title: 'titolo2',
       description: 'descrizione2',
       button: 'bottone2',
-      img: '',
-      isActive: false
+      isActive: false,
+      img: 'https://via.placeholder.com/1920x500'
   },    {
       title: 'titolo3',
       description: 'descrizione3',
       button: 'bottone3',
-      img: '',
-      isActive: false
+      isActive: false,
+      img: 'https://via.placeholder.com/1920x500'
   },
   ]
 
