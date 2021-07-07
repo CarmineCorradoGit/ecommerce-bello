@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 import { Product } from '../interface/product.interface';
 
 @Component({
@@ -9,18 +9,12 @@ import { Product } from '../interface/product.interface';
 })
 export class ShopComponent implements OnInit {
 
-  private url = "https://3n1dqzwmnn.api.quickmocker.com"
-
   products: Product[] = []
 
-  constructor(private http: HttpClient) {
-    this.http.get<any>(this.url).toPromise().then(data => {
-      console.log(data);
-
+  constructor(private appService: AppService) {
+    let prodotti = this.appService.getProducts();
+    prodotti.subscribe(data => {
       this.products = data.products;
-      console.log(this.products);
-
-
     })
   }
 

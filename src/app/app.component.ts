@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import '@fortawesome/fontawesome-free/js/all.js';
+// import '@fortawesome/fontawesome-free/js/all.js';
 
 @Component({
   selector: 'app-root',
