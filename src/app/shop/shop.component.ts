@@ -14,7 +14,7 @@ export class ShopComponent implements OnInit {
   products: Product[] = []
 
   constructor(private http: HttpClient) {
-      this.http.get(this.url, {
+      this.http.get<any>(this.url, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
       }).subscribe(data => {
         console.log(data)
