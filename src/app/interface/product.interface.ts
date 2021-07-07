@@ -6,5 +6,6 @@ export interface Product {
     type: string,
     description: string,
     quantity: number,
-    price: number
+    price: number,
+    onSales: boolean
 }

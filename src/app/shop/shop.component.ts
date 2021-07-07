@@ -9,13 +9,13 @@ import { Product } from '../interface/product.interface';
 })
 export class ShopComponent implements OnInit {
 
-  private url = "https://run.mocky.io/v3/6e082e65-4097-4bfd-abe0-aa8a3ae4ed09/products"
+  private url = "https://3n1dqzwmnn.api.quickmocker.com"
 
   products: Product[] = []
 
   constructor(private http: HttpClient) {
-    this.http.get<any>(this.url).subscribe(data => {
-      // console.log(data);
+    this.http.get<any>(this.url).toPromise().then(data => {
+      console.log(data);
 
       this.products = data.products;
       console.log(this.products);
