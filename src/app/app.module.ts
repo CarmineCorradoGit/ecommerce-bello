@@ -15,10 +15,11 @@ import { SalesComponent } from './sales/sales.component';
 import { ItemComponent } from './item/item.component';
 import { FaqComponent } from './faq/faq.component';
 import { OrdersComponent } from './orders/orders.component';
-import { InfoComponent } from './orders/info/info.component';
+import { CheckoutComponent } from './orders/checkout/checkout.component';
 import { CompleteComponent } from './orders/complete/complete.component';
 import { SlideComponent } from './home/carouselSlide/slide.component';
 import { FormsModule } from '@angular/forms';
+import { AlertComponent } from './generics/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,10 @@ import { FormsModule } from '@angular/forms';
     ItemComponent,
     FaqComponent,
     OrdersComponent,
-    InfoComponent,
+    CheckoutComponent,
     CompleteComponent,
-    SlideComponent
+    SlideComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
