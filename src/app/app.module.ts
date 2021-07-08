@@ -7,7 +7,7 @@ import { ChisiamoComponent } from './chisiamo/chisiamo.component';
 import { ShopComponent } from './shop/shop.component';
 import { CartComponent } from './orders/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CardComponent } from './shop/card/card.component';
+import { CardComponent } from './generics/card/card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
