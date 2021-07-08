@@ -18,13 +18,15 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      console.log(params)
       this.id = params['id'];
       this.appService.getProduct(this.id).subscribe((res) => {
         this.product = res;
-        console.log(this.product)
       })
     });
   }
+
+  // GoToCart(){
+
+  // }
 
 }
