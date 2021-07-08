@@ -7,7 +7,7 @@
 
     <div class="row">
       <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-        <img src="http://4everstatic.com/immagini/850xX/loghi/nike,-logo,-acqua-173267.jpg" class="img-fluid" alt="">
+        <img src="https://www.verdict.co.uk/wp-content/uploads/2021/04/shutterstock_1583248045.jpg" class="img-fluid" alt="">
       </div>
       <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
         <h3>Azienda eccellente nella vendita di prodotti online e tra le migliori al mondo.</h3>
@@ -60,25 +60,21 @@
   <h2>Alcuni Brand che noi vendiamo</h2>
   <div class="container">
       <div class="row">
-          <div class="col-lg-2 col-md-4 col-6">
-              <a href="#"><img src="https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/e0dd3496-cd41-4f66-b540-5dd77e0d7ee7" class="img-fluid" alt="Adidas logo"></a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-              <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Lenovo_Global_Corporate_Logo.png/800px-Lenovo_Global_Corporate_Logo.png" class="img-fluid" alt="Puma logo"></a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-              <a href="#"><img src="https://cultura.biografieonline.it/wp-content/uploads/2012/07/nike-logo1.jpg" class="img-fluid" id="nike" alt="Nike logo"></a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-              <a href="#"><img src="https://www.futurasrl.it/wp-content/uploads/2014/10/playstation-logo.png" class="img-fluid" alt="Playstation logo"></a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-              <a href="#"><img src="https://1000marche.net/wp-content/uploads/2020/03/Xbox-logo.png" class="img-fluid" alt="Xbox logo"></a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-              <a href="#"><img src="http://www.tradeco.computer/wp-content/uploads/2015/06/asus-rog-logo.png" class="img-fluid" alt="Hostinger logo"></a>
+          <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of immagini;">
+              <a><img [src]="item.imgsrc"></a>
           </div>
       </div>
   </div>
 </section>
+<br><br>
+<!-- ======= Bottone contattaci ======= -->
+
+<section>
+  <h2>Se desideri maggiori Informazioni o Contattarci</h2>
+   <div class="bottone">
+   <br>
+   <button type="button" class="btn btn-outline-primary" routerLink="/faq">Contattaci</button>
+   </div>
+</section>
+<br><br>
 

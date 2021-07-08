@@ -8,14 +8,18 @@ import { ItemComponent } from './item/item.component';
 import { SalesComponent } from './sales/sales.component';
 import { ShopComponent } from './shop/shop.component';
 import { OrdersComponent } from './orders/orders.component';
+import { CompleteComponent } from './orders/complete/complete.component'
+import { CheckoutComponent } from './orders/checkout/checkout.component';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
   { path: 'negozio', component: ShopComponent },
   { path: 'chi-siamo', component: ChisiamoComponent },
   { path: 'carrello', component: OrdersComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'prodotto/:id', component: ItemComponent },
+  { path: 'complete', component: CompleteComponent},
   { path: '', component: HomeComponent , pathMatch: 'full'}
 ];
 
