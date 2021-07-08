@@ -22,7 +22,6 @@ export class ItemComponent implements OnInit {
       this.id = params['id'];
       this.appService.getProduct(this.id).subscribe((res) => {
         this.product = res;
-        console.log(this.product)
       })
     });
   }
