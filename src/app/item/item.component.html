@@ -1,16 +1,52 @@
-<div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
-    <div class="justify-content-center row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-        <div class="col-auto">
-            <div class="card h-100">
-                <img src={{product.img}} class="card-img-top" alt="{{product.name}}">
-                <div class="card-body">
-                    <div class="clearfix mb-3">
-                        <span class="float-start badge rounded-pill bg-primary">{{product.name}}</span>
-                        <span class="float-end price">{{product.price}} &euro;</span>
+<div class="container mt-5 mb-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center" *ngIf="product.img.length > 1">
+                    <div class="main_image">
+                        <img [src]="imgShow" id="main_product_image" width="350">
                     </div>
-                    <h5 class="card-title">{{product.description}}</h5>
-                    <div class="text-center my-4">
-                        <a class="btn btn-warning"><i class="fas fa-shopping-cart"></i> Checkout</a>
+                    <div class="thumbnail_images">
+                        <ul id="thumbnail">
+                            <ng-container *ngFor="let item of product.img; first as isFirst">
+                                <li (click)="changeImg(item)" *ngIf="!isFirst">
+                                    <img [src]="item" width="70">
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-center" *ngIf="product.img.length == 1">
+                    <div class="main_image">
+                        <img [src]="product.img[0]" id="main_product_image" width="350">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>{{product.name}}</h3>
+                        <span class="heart" style="cursor: pointer;" (click)="like($event)">
+                            <i class='fa fa-heart'></i>
+                        </span>
+                    </div>
+                    <div class="mt-2 pr-3 content">
+                        <p>{{product.description}}</p>
+                    </div>
+                    <h3>{{product.price}} &euro;</h3>
+                    <div class="ratings d-flex flex-row align-items-center">
+                        <div class="d-flex flex-row">
+                            <i class='fa fa-star checked'></i>
+                            <i class='fa fa-star checked'></i>
+                            <i class='fa fa-star checked'></i>
+                            <i class='fa fa-star checked'></i>
+                            <i class='fa fa-star checked'></i>
+                        </div>
+                        <span>441 visualizzazioni</span>
+                    </div>
+                    <div class="buttons d-flex flex-row mt-5 gap-3">
+                        <button class="btn btn-outline-dark">Compra Ora</button>
+                        <button class="btn btn-outline-dark">Aggiungi al carrello</button>
                     </div>
                 </div>
             </div>
