@@ -15,8 +15,22 @@ export class ChisiamoComponent implements OnInit {
      titolo:"Pagamento sicuro",
      descrizione:"Il pagamento online avviene in maniera totalmente sicura e senza alcubn tipo di fregature.Inoltre accettiamo tutte le carte di credito e paypal."},
     { span:"3",
-     titolo:"Garanzie sicurezza",
+     titolo:"Garanzia e sicurezza",
      descrizione:"Ogni prodotto da noi venduto dispone di una resa in caso di danno dovuto alla consegna e una garanzia minima di due anni."}
+  ]
+
+  immagini=[
+    {imgsrc:"https://www.logo.wine/a/logo/Dell/Dell-Logo.wine.svg"},
+
+    {imgsrc:"https://images3.alphacoders.com/807/thumb-1920-807602.jpg"},
+
+    {imgsrc:"https://1000marche.net/wp-content/uploads/2020/03/Apple-logo-768x432.png"},
+
+    {imgsrc:"https://www.futurasrl.it/wp-content/uploads/2014/10/playstation-logo.png"},
+
+    {imgsrc:"https://multiplayer.net-cdn.it/thumbs/images/2019/11/08/asus-logo_jpg_800x0_crop_upscale_q85.jpg"},
+
+    {imgsrc:"http://www.tradeco.computer/wp-content/uploads/2015/06/asus-rog-logo.png"}
   ]
   constructor() { }
 
