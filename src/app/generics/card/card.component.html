@@ -1,0 +1,22 @@
+ <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+    <div class="justify-content-center row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="col-auto">
+            <div class="card h-100">
+                <img src={{prodotto.img}} class="card-img-top" alt="{{prodotto.name}}">
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span class="float-start badge rounded-pill bg-primary">{{prodotto.name}}</span>
+                        <span class="float-end price">{{prodotto.price}} &euro;</span>
+                    </div>
+                    <h5 class="card-title">{{prodotto.description}}</h5>
+                    <div class="text-center my-4">
+                      <a [routerLink]="['/prodotto/', prodotto.id]" class="btn btn-primary">Visualizza Prodotto</a>
+                  </div>
+                    <div class="text-center my-4">
+                        <a (click)="addCart()" class="btn btn-warning"><i class="fas fa-shopping-cart"></i> Compra Subito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

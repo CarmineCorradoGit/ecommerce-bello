@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 import { Product } from '../interface/product.interface';
 
 @Component({
@@ -9,17 +9,27 @@ import { Product } from '../interface/product.interface';
 })
 export class ShopComponent implements OnInit {
 
-  private url = "https://run.mocky.io/v3/6e082e65-4097-4bfd-abe0-aa8a3ae4ed09/products"
+  products: Product[] = [];
+  brands: string[] = [];
+  selectedOption: any = 'Any';
 
-  products: Product[] = []
-
-  constructor(private http: HttpClient) {
-    this.http.get<any>(this.url).subscribe(data => {
-      this.products = data.products;
+  constructor(private appService: AppService) {
+    let prodotti = this.appService.getProducts();
+    prodotti.subscribe(data => {
+      this.products = data;
+      data.forEach(element => {
+        if(!(this.brands.includes(element.brand))){
+          this.brands.push(element.brand)
+        }
+      });
     })
+  }
+ 
+  addCartElement(e: number){
+    let element = this.products.find(element => element.id === e)
+    this.appService.cart.push(element);
   }
 
   ngOnInit(): void {
   }
-
 }

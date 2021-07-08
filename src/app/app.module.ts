@@ -7,7 +7,7 @@ import { ChisiamoComponent } from './chisiamo/chisiamo.component';
 import { ShopComponent } from './shop/shop.component';
 import { CartComponent } from './orders/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CardComponent } from './shop/card/card.component';
+import { CardComponent } from './generics/card/card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +18,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { InfoComponent } from './orders/info/info.component';
 import { CompleteComponent } from './orders/complete/complete.component';
 import { SlideComponent } from './home/carouselSlide/slide.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SlideComponent } from './home/carouselSlide/slide.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
