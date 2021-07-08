@@ -17,7 +17,7 @@ import { FaqComponent } from './faq/faq.component';
 import { OrdersComponent } from './orders/orders.component';
 import { InfoComponent } from './orders/info/info.component';
 import { CompleteComponent } from './orders/complete/complete.component';
-import { SlideComponent } from './home/carouselSlide/slide.component';
+import { SlideComponent } from './generics/carouselSlide/slide.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
