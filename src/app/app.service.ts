@@ -14,6 +14,10 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get<any>(this.url)
+    return this.http.get<any>(this.url);
+  }
+  
+  getProduct(id: number) {
+    return this.http.get<any>(this.url+ '/' +id);
   }
 }
