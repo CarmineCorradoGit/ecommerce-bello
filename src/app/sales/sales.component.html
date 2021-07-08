@@ -1,1 +1,13 @@
-<p>sales works!</p>
+<h1>Offerte</h1>
+<p>Qui le nostre offerte</p>
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <ng-container *ngFor="let product of products">
+                <app-card [prodotto]="product" (addCartEvent)="addCartElement($event)"></app-card>
+            </ng-container>
+        </div>
+    </div>
+</div>
