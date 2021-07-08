@@ -6,7 +6,8 @@
                 <div class="card-body">
                     <div class="clearfix mb-3">
                         <span class="float-start badge rounded-pill bg-primary">{{prodotto.name}}</span>
-                        <span class="float-end price">{{prodotto.price}} &euro;</span>
+                        <span *ngIf="prodotto.onSales === false" class="float-end price">{{prodotto.price}} &euro;</span>
+                        <span *ngIf="prodotto.onSales === true" class="float-end price"><span class="badge bg-warning">in offerta a {{prodotto.price - prodotto.price*10/100}} &euro;</span>&nbsp;<s>{{prodotto.price}} &euro;</s></span>
                     </div>
                     <h5 class="card-title">{{prodotto.description}}</h5>
                     <div class="text-center my-4">
