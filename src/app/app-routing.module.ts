@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'sign-up', component: SignUpComponent},
   { path: 'add-prodotto', component: AddProductComponent},
+  { path: 'edit-prodotto/:id', component: AddProductComponent},
   { path: 'list-prodotti', component: ListProductsComponent},
   { path: '', component: HomeComponent , pathMatch: 'full'}
 ];

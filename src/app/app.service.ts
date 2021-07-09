@@ -36,5 +36,9 @@ export class AppService {
   
   getProduct(id: number) {
     return this.http.get<Product>(this.url+ 'products/' +id);
+  }  
+
+  deleteProduct(id: number) {
+    return this.http.delete<Product>(this.url+ 'products/' +id);
   }
 }
