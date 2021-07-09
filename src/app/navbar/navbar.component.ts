@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  role: 'user'|'admin'|null = null
+
+  constructor(private appService: AppService) {
+    this.role = this.appService.userRole
+   }
 
   ngOnInit(): void {
   }
