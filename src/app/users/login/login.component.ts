@@ -11,6 +11,9 @@ export class LoginComponent implements OnInit {
 
   users: User[] = []
 
+  email: string;
+  password: string;
+
   constructor(private appService: AppService) {
     this.appService.getUsers().subscribe((res)=>{
       this.users = res;
@@ -22,8 +25,20 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(){
+    console.log('checkuser called');
+
+    let logginUser = this.users.find(user => user.email === this.email && user.password === this.password);
     
-    this.appService.userRole 
+    if(logginUser) {
+      console.log('trovato');
+      console.log(logginUser.role);
+      
+      this.appService.userRole = logginUser.role;
+      
+    } else {
+      console.log('non lo trovo');
+      this.appService.userRole = null;
+    }
   }
 
 }
