@@ -10,6 +10,8 @@ import { ShopComponent } from './shop/shop.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CompleteComponent } from './orders/complete/complete.component'
 import { CheckoutComponent } from './orders/checkout/checkout.component';
+import { LoginComponent } from './users/login/login.component';
+import { SignUpComponent } from './users/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'faq', component: FaqComponent },
   { path: 'prodotto/:id', component: ItemComponent },
   { path: 'complete', component: CompleteComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'sign-up', component: SignUpComponent},
   { path: '', component: HomeComponent , pathMatch: 'full'}
 ];
 
