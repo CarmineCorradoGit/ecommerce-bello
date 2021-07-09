@@ -14,22 +14,25 @@ import { LoginComponent } from './users/login/login.component';
 import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { ListProductsComponent } from './products/list-products/list-products.component';
+import { AppGuard } from './app-guard.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
   { path: 'negozio', component: ShopComponent },
   { path: 'chi-siamo', component: ChisiamoComponent },
   { path: 'carrello', component: OrdersComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  { path: 'checkout', component: CheckoutComponent , canActivate: [AppGuard]},
   { path: 'faq', component: FaqComponent },
   { path: 'prodotto/:id', component: ItemComponent },
-  { path: 'complete', component: CompleteComponent},
+  { path: 'complete', component: CompleteComponent , canActivate: [AppGuard]},
   { path: 'login', component: LoginComponent},
-  { path: 'sign-up', component: SignUpComponent},
-  { path: 'add-prodotto', component: AddProductComponent},
-  { path: 'edit-prodotto/:id', component: AddProductComponent},
-  { path: 'list-prodotti', component: ListProductsComponent},
-  { path: '', component: HomeComponent , pathMatch: 'full'}
+  { path: 'sign-up', component: SignUpComponent , canActivate: [AppGuard]},
+  { path: 'add-prodotto', component: AddProductComponent , canActivate: [AppGuard]},
+  { path: 'edit-prodotto/:id', component: AddProductComponent , canActivate: [AppGuard]},
+  { path: 'list-prodotti', component: ListProductsComponent , canActivate: [AppGuard]},
+  { path: '', component: HomeComponent , pathMatch: 'full'},
+  { path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({

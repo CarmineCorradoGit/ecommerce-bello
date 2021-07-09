@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { Product } from './interface/product.interface';
 import { User } from './interface/user.interface';
 
@@ -16,7 +17,14 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-
+  isAuthenticated(route: ActivatedRouteSnapshot){
+    console.log(route)
+    if(this.userRole){
+      return true
+    } else {
+      return false
+    }
+  }
 
   getUser(id: number) {
     return this.http.get<User>(this.url+'users');
