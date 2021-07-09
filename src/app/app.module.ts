@@ -23,6 +23,7 @@ import { LoginComponent } from './users/login/login.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { ListProductsComponent } from './products/list-products/list-products.component';
 import { SignUpComponent } from './users/sign-up/sign-up.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SignUpComponent } from './users/sign-up/sign-up.component';
     LoginComponent,
     AddProductComponent,
     ListProductsComponent,
-    SignUpComponent
+    SignUpComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

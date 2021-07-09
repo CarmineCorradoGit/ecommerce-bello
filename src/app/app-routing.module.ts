@@ -14,6 +14,7 @@ import { LoginComponent } from './users/login/login.component';
 import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { ListProductsComponent } from './products/list-products/list-products.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'add-prodotto', component: AddProductComponent},
   { path: 'edit-prodotto/:id', component: AddProductComponent},
   { path: 'list-prodotti', component: ListProductsComponent},
-  { path: '', component: HomeComponent , pathMatch: 'full'}
+  { path: '', component: HomeComponent , pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
