@@ -7,46 +7,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
+  toShow = "nav-cart"
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  changeView(view: string){
+    let elemt =[
+      'nav-cart',
+      'nav-checkout',
+      'nav-complete'
+    ]
+    switch(view){
+      case 'next':
+        if(this.toShow !== 'nav-complete'){
+          let i = elemt.indexOf(this.toShow);
+          this.toShow = elemt[i+1];
+        }
+        break; 
+      case 'back':
+        if(this.toShow !== 'nav-cart'){
+          let i = elemt.indexOf(this.toShow);
+          this.toShow = elemt[i-1];
+        }
+        break; 
+      case 'nav-cart':
+        this.toShow = 'nav-cart'
+        break; 
+      case 'nav-checkout':
+        this.toShow = 'nav-checkout'
+        break; 
+      case 'nav-complete':
+        this.toShow = 'nav-complete'
+        break;
+    }
+    if(view === 'next'){
+
+    } else{
+
+    }
+  }
+
 }
-
-
-// $(document).ready(function () {
-//   //Initialize tooltips
-//   $('.nav-tabs > li a[title]').tooltip();
-  
-//   //Wizard
-//   $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-
-//       var $target = $(e.target);
-  
-//       if ($target.parent().hasClass('disabled')) {
-//           return false;
-//       }
-//   });
-
-//   $(".next-step").click(function (e) {
-
-//       var $active = $('.wizard .nav-tabs li.active');
-//       $active.next().removeClass('disabled');
-//       nextTab($active);
-
-//   });
-//   $(".prev-step").click(function (e) {
-
-//       var $active = $('.wizard .nav-tabs li.active');
-//       prevTab($active);
-
-//   });
-// });
-
-// function nextTab(elem) {
-//   $(elem).next().find('a[data-toggle="tab"]').click();
-// }
-// function prevTab(elem) {
-//   $(elem).prev().find('a[data-toggle="tab"]').click();
-// }

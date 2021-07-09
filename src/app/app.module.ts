@@ -17,7 +17,7 @@ import { FaqComponent } from './faq/faq.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CheckoutComponent } from './orders/checkout/checkout.component';
 import { CompleteComponent } from './orders/complete/complete.component';
-import { SlideComponent } from './home/carouselSlide/slide.component';
+import { SlideComponent } from './generics/carouselSlide/slide.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './generics/alert/alert.component';
 
