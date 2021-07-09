@@ -17,7 +17,6 @@ export class SalesComponent implements OnInit {
       console.log(data);
       this.products = data.filter((element) => element.onSales === true)
       console.log(this.products);
-      
     })
   }
 
