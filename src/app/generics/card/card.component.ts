@@ -12,6 +12,8 @@ export class CardComponent implements OnInit {
 
   @Output() addCartEvent = new EventEmitter<number>();
 
+  mat = Math;
+
   constructor() { }
 
   ngOnInit(): void {

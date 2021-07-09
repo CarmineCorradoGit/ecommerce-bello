@@ -7,5 +7,6 @@ export interface Product {
     description: string,
     quantity: number,
     price: number,
-    onSales: boolean
+    onSales: boolean,
+    discount: number
 }
