@@ -23,7 +23,7 @@ export class ShopComponent implements OnInit {
           this.brands.push(element.brand)
         }
         if(!(this.types.includes(element.type))){
-          this.brands.push(element.type)
+          this.types.push(element.type)
         }
       });
     })
