@@ -4,7 +4,7 @@ import { CartComponent } from './orders/cart/cart.component';
 import { ChisiamoComponent } from './chisiamo/chisiamo.component';
 import { FaqComponent } from './faq/faq.component';
 import { HomeComponent } from './home/home.component';
-import { ItemComponent } from './item/item.component';
+import { ItemComponent } from './products/item/item.component';
 import { SalesComponent } from './sales/sales.component';
 import { ShopComponent } from './shop/shop.component';
 import { OrdersComponent } from './orders/orders.component';
