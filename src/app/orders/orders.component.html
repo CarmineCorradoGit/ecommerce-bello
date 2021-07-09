@@ -10,13 +10,13 @@
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show my-5" id="nav-cart-content" role="tabpanel" [ngClass]="{active: toShow === 'nav-cart'}">
+        <div class="tab-pane fade my-5" id="nav-cart-content" role="tabpanel" [ngClass]="{'active show': toShow === 'nav-cart'}">
             <app-cart></app-cart>
         </div>
-        <div class="tab-pane fade my-5" id="nav-checkout-content" role="tabpanel" [ngClass]="{active: toShow === 'nav-checkout'}">
-    
+        <div class="tab-pane fade my-5" id="nav-checkout-content" role="tabpanel" [ngClass]="{'active show': toShow === 'nav-checkout'}">
+            <app-checkout></app-checkout>
         </div>
-        <div class="tab-pane fade my-5" id="nav-contact" role="tabpanel" [ngClass]="{active: toShow === 'nav-complete'}">
+        <div class="tab-pane fade my-5" id="nav-contact" role="tabpanel" [ngClass]="{'active show': toShow === 'nav-complete'}">
             <app-complete></app-complete>
         </div>
       </div>
