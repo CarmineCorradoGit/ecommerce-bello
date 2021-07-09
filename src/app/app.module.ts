@@ -11,7 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SalesComponent } from './sales/sales.component';
-import { ItemComponent } from './item/item.component';
+import { ItemComponent } from './products/item/item.component';
 import { FaqComponent } from './faq/faq.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CheckoutComponent } from './orders/checkout/checkout.component';
@@ -19,9 +19,10 @@ import { CompleteComponent } from './orders/complete/complete.component';
 import { SlideComponent } from './generics/carouselSlide/slide.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './generics/alert/alert.component';
-import { LoginComponent } from './login/login.component';
-import { AddProductComponent } from './add-product/add-product.component';
-import { ListProductsComponent } from './list-products/list-products.component';
+import { LoginComponent } from './users/login/login.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { ListProductsComponent } from './products/list-products/list-products.component';
+import { SignUpComponent } from './users/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ListProductsComponent } from './list-products/list-products.component';
     AlertComponent,
     LoginComponent,
     AddProductComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
