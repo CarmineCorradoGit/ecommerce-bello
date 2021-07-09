@@ -11,7 +11,6 @@ import { Product } from '../../interface/product.interface';
 export class ItemComponent implements OnInit {
 
   id: number;
-  img: any = [];
   product: Product;
   imgShow: string;
   onClick: boolean = false;
@@ -23,7 +22,6 @@ export class ItemComponent implements OnInit {
       this.id = params['id'];
       this.appService.getProduct(this.id).subscribe((res) => {
         this.product = res;
-        
         if (this.product.img.length > 1) {
           this.imgShow = this.product.img[1];
         }
