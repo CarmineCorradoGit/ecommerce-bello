@@ -14,10 +14,10 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get<any>(this.url+'products');
+    return this.http.get<Product[]>(this.url+'products');
   }
   
   getProduct(id: number) {
-    return this.http.get<any>(this.url+ 'products/' +id);
+    return this.http.get<Product>(this.url+ 'products/' +id);
   }
 }

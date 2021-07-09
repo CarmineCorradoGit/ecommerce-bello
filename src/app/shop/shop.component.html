@@ -11,10 +11,16 @@
     </div>
   </div>
 </section>
-<select class="form-select" aria-label="Default select example" [(ngModel)]="selectedOption" >
-  <option value="Any" selected>Any</option>
-  <option *ngFor="let brand of brands" [attr.value]="brand">{{brand}}</option>
-</select>
+<div class="container">
+  <select class="form-select" aria-label="brand" [(ngModel)]="selectedOption" >
+    <option value="Any" selected>Any</option>
+    <option *ngFor="let brand of brands" [attr.value]="brand">{{brand}}</option>
+  </select>
+  <select class="form-select" aria-label="type" [(ngModel)]="selectedOption" >
+    <option value="Any" selected>Any</option>
+    <option *ngFor="let brand of brands" [attr.value]="brand">{{brand}}</option>
+  </select>
+</div>
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
