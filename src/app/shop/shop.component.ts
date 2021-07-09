@@ -12,7 +12,8 @@ export class ShopComponent implements OnInit {
   products: Product[] = [];
   brands: string[] = [];
   types: string[] = [];
-  selectedOption: any = 'Any';
+  selectedType: any = 'Any';
+  selectedBrand: any = 'Any';
 
   constructor(private appService: AppService) {
     let prodotti = this.appService.getProducts();
