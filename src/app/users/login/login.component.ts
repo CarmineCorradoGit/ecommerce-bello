@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
+import { User } from 'src/app/interface/user.interface';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  users: User[] = []
+
+  constructor(private appService: AppService) {
+    this.appService.getUsers().subscribe((res)=>{
+      this.users = res;
+      console.log(this.users)
+    })
+   }
 
   ngOnInit(): void {
+  }
+
+  checkUser(){
+    
+    this.appService.userRole 
   }
 
 }

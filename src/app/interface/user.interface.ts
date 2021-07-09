@@ -7,5 +7,6 @@ export interface User {
     address:string,
     country:string,
     city:string,
-    cap:number
+    cap:number,
+    password: string
 }
