@@ -15,10 +15,45 @@ export class AppService {
 
   cart: Product[] = []
 
+  canRoute: boolean;
+
   constructor(private http: HttpClient) { }
 
   isAuthenticated(route: ActivatedRouteSnapshot){
-    console.log(route)
+    this.canRoute = false;
+    switch (route.routeConfig.path){
+      case 'list-prodotti':
+        if(this.userRole === 'admin'){
+          this.canRoute = true;
+        }
+        break;
+      case 'edit-prodotto/:id':
+        if(this.userRole === 'admin'){
+          this.canRoute = true;
+        }
+        break;
+      case 'add-prodotto':
+        if(this.userRole === 'admin'){
+          this.canRoute = true;
+        }
+        break;
+      case 'sign-up':
+        if(this.userRole === null){
+          this.canRoute = true;
+        }
+        break;
+      case 'complete':
+        if(this.userRole !== null){
+          this.canRoute = true;
+        }
+        break;
+      case 'checkout':
+        if(this.userRole !== null){
+          this.canRoute = true;
+        }
+        break;
+
+    }
     if(this.userRole){
       return true
     } else {

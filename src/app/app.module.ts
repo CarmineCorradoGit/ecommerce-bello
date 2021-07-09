@@ -24,6 +24,7 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { ListProductsComponent } from './products/list-products/list-products.component';
 import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AppGuard } from './app-guard.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AppGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
