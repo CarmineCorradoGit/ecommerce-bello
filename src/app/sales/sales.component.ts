@@ -15,10 +15,17 @@ export class SalesComponent implements OnInit {
     let prodotti = this.appService.getProducts();
     prodotti.subscribe(data => {
       this.products = data.filter((element) => element.onSales === true)
+      console.log(this.products);
+      
     })
   }
 
   ngOnInit(): void {
   }
 
+   
+  addCartElement(e: number){
+    let element = this.products.find(element => element.id === e)
+    this.appService.cart.push(element);
+  }
 }

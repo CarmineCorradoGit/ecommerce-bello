@@ -7,17 +7,17 @@ import { Product } from './interface/product.interface';
 })
 export class AppService {
 
-  private url: string = 'https://60c8ea647dafc90017ffbcea.mockapi.io/products';
+  private url: string = 'https://60e7113c15387c00173e4a54.mockapi.io/';
 
   cart: Product[] = []
 
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get<any>(this.url);
+    return this.http.get<any>(this.url+'products');
   }
   
   getProduct(id: number) {
-    return this.http.get<any>(this.url+ '/' +id);
+    return this.http.get<any>(this.url+ 'products/' +id);
   }
 }

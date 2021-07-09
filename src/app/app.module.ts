@@ -19,6 +19,9 @@ import { CompleteComponent } from './orders/complete/complete.component';
 import { SlideComponent } from './generics/carouselSlide/slide.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './generics/alert/alert.component';
+import { LoginComponent } from './login/login.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ListProductsComponent } from './list-products/list-products.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { AlertComponent } from './generics/alert/alert.component';
     CheckoutComponent,
     CompleteComponent,
     SlideComponent,
-    AlertComponent
+    AlertComponent,
+    LoginComponent,
+    AddProductComponent,
+    ListProductsComponent
   ],
   imports: [
     BrowserModule,
