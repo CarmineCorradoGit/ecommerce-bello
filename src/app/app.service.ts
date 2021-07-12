@@ -11,7 +11,7 @@ export class AppService {
 
   private url: string = 'https://60e7113c15387c00173e4a54.mockapi.io/';
 
-  userRole: 'user'|'admin' | null = 'admin';
+  userRole: 'user'|'admin' | null = null;
 
   cart: Product[] = []
 

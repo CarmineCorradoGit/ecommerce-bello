@@ -27,7 +27,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppGuard } from './app-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component'
+import { DialogComponent } from './generics/dialog/dialog.component'
 @NgModule({
   declarations: [
     AppComponent,

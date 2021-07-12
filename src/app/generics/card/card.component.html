@@ -2,7 +2,12 @@
     <div class="justify-content-center row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
         <div class="col-auto">
             <div class="card h-100">
-                <img [src]="prodotto.img[1]" class="card-img-top" alt="{{prodotto.name}}">
+                <ng-container *ngIf="prodotto.img.length>1">
+                    <img [src]="prodotto.img[1]" class="card-img-top" alt="{{prodotto.name}}">
+                </ng-container>
+                <ng-container *ngIf="prodotto.img.length===1">
+                    <img [src]="prodotto.img[0]" class="card-img-top" alt="{{prodotto.name}}">
+                </ng-container>
                 <div class="card-body">
                     <div class="clearfix mb-3">
                         <span class="float-start badge rounded-pill bg-primary">{{prodotto.name}}</span>
