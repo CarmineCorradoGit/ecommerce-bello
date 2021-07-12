@@ -25,7 +25,7 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <ng-container *ngFor="let product of products">
-        <app-card *ngIf="product.brand === selectedBrand || selectedBrand === 'Any'" [prodotto]="product" (addCartEvent)="addCartElement($event)"></app-card>
+        <app-card *ngIf="(product.brand === selectedBrand || selectedBrand === 'Any') && (product.brand === selectedType || selectedType === 'Any')" [prodotto]="product" (addCartEvent)="addCartElement($event)"></app-card>
       </ng-container>
     </div>
   </div>
