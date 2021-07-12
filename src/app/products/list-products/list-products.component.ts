@@ -26,11 +26,11 @@ export class ListProductsComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogComponent, {
       data: p
     })
-    console.log(p);
+    //console.log(p);
     
     dialogRef.afterClosed().subscribe( res => {
       if (res) {
-        console.log(res);
+        //console.log(res);
         if (res.data) {
           this.deleteProduct(res.data);
         }
@@ -39,15 +39,16 @@ export class ListProductsComponent implements OnInit {
   }
 
   deleteProduct(id: number){
-    let index = this.products.indexOf(this.products.find(p => p.id === id))
-    this.appService.deleteProduct(id).subscribe((res)=>{
-      console.log('prima' + this.products);
-      
-      this.products.splice(index, 1)
+    let index = this.products.indexOf(this.products.find(p => p.id === id));
 
-      console.log('dopo' + this.products);
+    this.appService.deleteProduct(id).subscribe((res)=>{
+      //console.log('prima' + this.products);
       
-      console.log(res);
+      this.products.splice(index, 1);
+
+      //console.log('dopo' + this.products);
+      
+      //console.log(res);
     })
   }
 
