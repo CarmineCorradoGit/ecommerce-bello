@@ -74,6 +74,10 @@ export class AppService {
   
   getProduct(id: number) {
     return this.http.get<Product>(this.url+ 'products/' +id);
+  }    
+
+  postProduct(product: Product) {
+    return this.http.post<Product>(this.url+ 'products/', product);
   }  
 
   deleteProduct(id: number) {

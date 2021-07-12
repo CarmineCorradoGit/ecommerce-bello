@@ -25,6 +25,7 @@ import { ListProductsComponent } from './products/list-products/list-products.co
 import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppGuard } from './app-guard.service';
+import { FilterShopDirective } from './generics/directives/filter.directive';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AppGuard } from './app-guard.service';
     AddProductComponent,
     ListProductsComponent,
     SignUpComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FilterShopDirective  
   ],
   imports: [
     BrowserModule,
