@@ -79,4 +79,8 @@ export class AppService {
   deleteProduct(id: number) {
     return this.http.delete<Product>(this.url+ 'products/' +id);
   }
+
+  addProduct(product : Product) {
+    return this.http.post<Product>(this.url+ 'products/', product);
+  }
 }
