@@ -1,4 +1,4 @@
-import { Component, OnInit, QueryList } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-faq',
@@ -7,7 +7,11 @@ import { Component, OnInit, QueryList } from '@angular/core';
 })
 export class FaqComponent implements OnInit {
 
-  currentFilter = 0;
+  name: string;
+  email: string;
+  msg: string;
+
+  currentFilter: number = 0;
 
   faqs = [
     {
@@ -77,8 +81,13 @@ export class FaqComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  filterFaq(n) {
+  filterFaq(n: number) {
     this.currentFilter = n
+  }
+
+  submitForm() {
+    const allInfo = `Message from: ${this.name} - E-Mail address: ${this.email}.\n\n${this.msg}`;
+    alert(allInfo); 
   }
 
 }
