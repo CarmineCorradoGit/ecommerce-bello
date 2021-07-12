@@ -23,7 +23,7 @@ import { LoginComponent } from './users/login/login.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { ListProductsComponent } from './products/list-products/list-products.component';
 import { SignUpComponent } from './users/sign-up/sign-up.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppGuard } from './app-guard.service';
 
 @NgModule({
@@ -48,7 +48,7 @@ import { AppGuard } from './app-guard.service';
     AddProductComponent,
     ListProductsComponent,
     SignUpComponent,
-    NotFoundComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
