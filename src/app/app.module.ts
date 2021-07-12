@@ -25,7 +25,9 @@ import { ListProductsComponent } from './products/list-products/list-products.co
 import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppGuard } from './app-guard.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,13 +50,16 @@ import { AppGuard } from './app-guard.service';
     AddProductComponent,
     ListProductsComponent,
     SignUpComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [AppGuard],
   bootstrap: [AppComponent]

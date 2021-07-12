@@ -8,7 +8,7 @@
                         <a class="product-name" [routerLink]="['/prodotto/', product.id]">{{product.name}}</a>&nbsp;
                         <div class="d-flex flex-row">
                             <a class="btn btn-warning" [routerLink]="['/edit-prodotto/', product.id]">Modifica</a>&nbsp;
-                            <button class="btn btn-danger" (click)="deleteProduct(product.id)">Elimina</button>
+                            <button mat-button class="btn btn-danger" (click)="openDialog(product)">Elimina</button>
                         </div>
                     </li>
                 </ul>
