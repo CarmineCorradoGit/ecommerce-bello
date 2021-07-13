@@ -11,6 +11,30 @@
     </div>
 </div>
 <div class="album py-5 bg-light">
+    <div class="container ">
+        <div class="row ">
+          <div class="col mx-5"  *ngIf="role === null">
+            <a class="btn btn-primary" [routerLink]="['/user','login']">Accedi per fare acquisti</a>
+          </div>
+        </div>
+    
+        <div class="row justify-content-end">
+          <div class="col-3">
+            <label for="typeSelect">Tipo:</label>
+            <select id="typSelect" class="form-select " aria-label="type" [(ngModel)]="selectedType" >
+              <option value="Any" selected>Any</option>
+              <option *ngFor="let type of types" [attr.value]="type">{{type}}</option>
+            </select>
+           </div>
+          <div class="col-3">
+            <label for="brandSelect">Marca:</label>
+            <select id="brandSelect" class="form-select" aria-label="brand" [(ngModel)]="selectedBrand" >
+              <option value="Any" selected>Any</option>
+              <option *ngFor="let brand of brands" [attr.value]="brand">{{brand}}</option>
+            </select>
+          </div>
+        </div>
+        </div>
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <ng-container *ngFor="let product of products">
