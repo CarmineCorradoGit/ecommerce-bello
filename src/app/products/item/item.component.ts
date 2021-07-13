@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../app.service';
 import { Product } from '../../interface/product.interface';
@@ -9,7 +9,7 @@ import { Product } from '../../interface/product.interface';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-
+  @Output() addCartEvent = new EventEmitter<number>();
   id: number;
   product: Product;
   imgShow: string;
@@ -39,6 +39,18 @@ export class ItemComponent implements OnInit {
     } else {
       event.target.classList.remove('checked-heart');
       this.onClick = false;
+    }
+  }
+
+  addCartElement(e: number){
+    let element;
+    element = this.appService.cart.find(element => element.id === e);
+    if(element){
+      element.quantity++
+    } else {
+      element = this.product;
+      element.quantity = 1;
+      this.appService.cart.push(element);
     }
   }
 
