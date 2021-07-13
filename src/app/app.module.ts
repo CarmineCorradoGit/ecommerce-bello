@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './generics/dialog/dialog.component'
 import { UserComponent } from './users/users.component';
+import { MessageListComponent } from './message-list/message-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { UserComponent } from './users/users.component';
     PageNotFoundComponent,
     FilterShopDirective,
     DialogComponent,
-    UserComponent
+    UserComponent,
+    MessageListComponent
   ],
   imports: [
     BrowserModule,

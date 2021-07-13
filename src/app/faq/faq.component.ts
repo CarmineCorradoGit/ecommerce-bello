@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-faq',
@@ -76,7 +77,7 @@ export class FaqComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
   }
@@ -87,7 +88,14 @@ export class FaqComponent implements OnInit {
 
   submitForm() {
     const allInfo = `Message from: ${this.name} - E-Mail address: ${this.email}.\n\n${this.msg}`;
-    alert(allInfo); 
+    let message = {
+
+    }
+    this.appService.postMessage(message).subscribe((res) => {
+      console.log(res);
+      alert(allInfo); 
+    });
+   
   }
 
 }
