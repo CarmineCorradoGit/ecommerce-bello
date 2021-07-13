@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 import { AppService } from '../app.service';
 import { OrderService } from '../order.service';
 
@@ -8,19 +9,26 @@ import { OrderService } from '../order.service';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersComponent implements OnInit, OnDestroy {
 
   toShow = "nav-cart"
 
   customerDataSend = false;
 
+  temp: any
+
   constructor(private appService: AppService, private route: ActivatedRoute, private router: Router, private orderService: OrderService) { 
-    this.orderService.customerDataChange.subscribe(() => {
+   this.temp = this.orderService.customerDataChange.subscribe(() => {
+      console.log('in order component')
       this.customerDataSend = this.orderService.customerDataSend;
     })
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(){
+    this.temp.unsubscribe();
   }
 
   changeView(view: string) {

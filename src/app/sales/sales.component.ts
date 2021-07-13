@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Product } from '../interface/product.interface';
 
@@ -7,7 +7,7 @@ import { Product } from '../interface/product.interface';
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.scss']
 })
-export class SalesComponent implements OnInit {
+export class SalesComponent implements OnInit, OnDestroy {
 
   products: Product[];
   brands: string[] = [];
@@ -15,6 +15,7 @@ export class SalesComponent implements OnInit {
   selectedType: any = 'Any';
   selectedBrand: any = 'Any';
 
+  temp: any;
 
   role: 'user'|'admin'|null = null;
 
@@ -25,7 +26,7 @@ export class SalesComponent implements OnInit {
     console.log('init role ' + this.role);
 
     // controlla cambiamenti del role
-    this.appService.userRoleChange.subscribe(() => {
+   this.temp = this.appService.userRoleChange.subscribe(() => {
       
       console.log('userRole ' + this.appService.userRole);
       
@@ -53,6 +54,10 @@ export class SalesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+ngOnDestroy(){
+  this.temp.unsubscribe();
+}
 
   //da spostare in un ipotetico cart service 
 

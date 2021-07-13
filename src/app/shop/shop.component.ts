@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Product } from '../interface/product.interface';
 
@@ -7,7 +7,7 @@ import { Product } from '../interface/product.interface';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent implements OnInit, OnDestroy {
 
   products: Product[] = [];
   brands: string[] = [];
@@ -17,6 +17,8 @@ export class ShopComponent implements OnInit {
 
   role: 'user'|'admin'|null = null;
 
+temp: any;
+
   constructor(private appService: AppService) {
 
     // setta role in base all'userRole attuale di appService
@@ -24,7 +26,7 @@ export class ShopComponent implements OnInit {
     console.log('init role ' + this.role);
 
     // controlla cambiamenti del role
-    this.appService.userRoleChange.subscribe(() => {
+   this.temp = this.appService.userRoleChange.subscribe(() => {
       
       console.log('userRole ' + this.appService.userRole);
       
@@ -65,5 +67,8 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  ngOnDestroy(){
+    this.temp.unsubscribe();
   }
 }
