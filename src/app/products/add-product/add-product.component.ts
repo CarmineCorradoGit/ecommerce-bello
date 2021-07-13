@@ -12,7 +12,7 @@ import { Product } from 'src/app/interface/product.interface';
 export class AddProductComponent implements OnInit {
   name: string = "";
   brand: string = "";
-  imgUrl:string="";
+  imgUrl: string = "";
   img: string[] = [];
   id: number = 0;
   type: string = "";
@@ -44,13 +44,41 @@ export class AddProductComponent implements OnInit {
       this.isEnabled = true;
     }
   }
-
-  getImage(imageUrl: string): Observable<Blob> {
-    return this.httpClient.get(imageUrl, { responseType: 'blob' });
+  controlUrlImg(link: string) {
+    console.log("holaaa0");
+    if (link.startsWith("https://")) {
+      return true;
+    } else {
+      console.log("holaaa1");
+      return false;
+    }
   }
+
+  addImages() {
+    if (!this.controlUrlImg(this.imgUrl)) {
+      console.log("holaaa2");
+      this.error.nativeElement.style = "height:4%";
+      this.error.nativeElement.classList.add("error");
+      this.error.nativeElement.innerHTML = "Inserisci bene il link";
+    } else {
+      if (this.img.length<1) {
+        this.img.unshift(this.imgDefault);
+      }
+      this.img.push(this.imgUrl);
+      console.log(this.img);
+      this.imgUrl = "";
+      this.error.nativeElement.style = "background : green ;height:4%";
+      this.error.nativeElement.classList.add("error");
+      this.error.nativeElement.innerHTML = "Prima immagine inserita con successo";
+    }
+  }
+  deletImmage(i: number) {
+    this.img.splice(i, 1);
+  }
+
   addProduct() {
     console.log(this.imgUrl);
-    
+
     if (this.name === "") {
       this.error.nativeElement.classList.add("error");
       this.error.nativeElement.innerHTML = "Campo nome prodotto obbligatorio";
@@ -81,53 +109,37 @@ export class AddProductComponent implements OnInit {
     } else {
       this.counterId++;
       let obj: Product;
-      if (this.imgUrl === "") {
+      if (this.img.length === 0) {
         this.img.push(this.imgDefault);
-        obj = {
-          name: this.name,
-          brand: this.brand,
-          img: this.img,
-          id: this.counterId,
-          type: this.type,
-          description: this.description,
-          quantity: this.quantity,
-          price: this.price,
-          onSales: !this.isEnabled,
-          discount: this.discount
-        }
-      } else {
-        this.img.push(this.imgUrl);
-        obj = {
-          name: this.name,
-          brand: this.brand,
-          img: this.img,
-          id: this.counterId,
-          type: this.type,
-          description: this.description,
-          quantity: this.quantity,
-          price: this.price,
-          onSales: !this.isEnabled,
-          discount: this.discount
-        }
-        this.img.unshift(this.imgDefault);
       }
-      
-
+      obj = {
+        name: this.name,
+        brand: this.brand,
+        img: this.img,
+        id: this.counterId,
+        type: this.type,
+        description: this.description,
+        quantity: this.quantity,
+        price: this.price,
+        onSales: !this.isEnabled,
+        discount: this.discount
+      }
       try {
         this.appService.addProduct(obj).subscribe((res) => {
           this.error.nativeElement.classList.add("error");
           this.error.nativeElement.innerHTML = "Grazie per aver aggiunto il prodotto!!!";
           this.error.nativeElement.style = "background : green; height:4%";
         });
-        this.name="";
-        this.brand="";
-        this.img=[];
-        this.type="";
-        this.description="";
-        this.quantity=0;
-        this.price=0;
-        this.onSales=false,
-        this.discount=0;
+        this.name = "";
+        this.brand = "";
+        this.img = [];
+        this.imgUrl = "";
+        this.type = "";
+        this.description = "";
+        this.quantity = 0;
+        this.price = 0;
+        this.onSales = false,
+          this.discount = 0;
 
         setTimeout(() => {
           this.router.navigate(['../negozio'], { relativeTo: this.route });
@@ -135,7 +147,7 @@ export class AddProductComponent implements OnInit {
       } catch (error) {
         this.error.nativeElement.classList.add("error");
         this.error.nativeElement.innerHTML = "Errore tecnico!!! Si prega di riprovare più tardi.<br> Grazie" + this.name;
-        this.error.nativeElement.style="height:9%";
+        this.error.nativeElement.style = "height:9%";
         console.log(error);
       }
     }
