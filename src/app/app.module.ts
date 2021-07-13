@@ -31,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './generics/dialog/dialog.component'
 import { UserComponent } from './users/users.component';
 import { MessageListComponent } from './message-list/message-list.component';
+import { OrderGuard } from './order-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,7 @@ import { MessageListComponent } from './message-list/message-list.component';
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [AppGuard],
+  providers: [AppGuard, OrderGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

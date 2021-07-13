@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { OrderService } from 'src/app/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -8,6 +9,7 @@ import {NgForm} from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
 
+  inviati: boolean = false;
 
   name:string;
   surname:string;
@@ -18,12 +20,14 @@ export class CheckoutComponent implements OnInit {
   cap:number;
   paymentMethod:string;
   
-  constructor() {
-   }
+  constructor(private orderService: OrderService) {
+  }
 
-
-   consoleLog(){
-    console.log(this.country)
+  customerSendData(data){
+    console.log(data);
+    this.orderService.dataCustomer = data.form.value;
+    this.orderService.changeCustomerData(true);
+    this.inviati = true
   }
 
   ngOnInit(): void {

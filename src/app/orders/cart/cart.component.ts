@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
+import { Product } from 'src/app/interface/product.interface';
+import { OrderService } from 'src/app/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,55 +10,18 @@ import { AppService } from 'src/app/app.service';
 })
 export class CartComponent implements OnInit {
 
+  totalPrice = 0
 
+  tmpArr: Product[] = []
 
-  tmpArr: any[] = [
-    {
-      id: 1,
-      img: [
-        "https://images.pexels.com/photos/2148217/pexels-photo-2148217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "https://images.pexels.com/photos/2148217/pexels-photo-2148217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      ],
-      brand: "Apple",
-      name: "MacBook Pro",
-      description: 'Bellissimo Pc Portatile 345 TB ram',
-      quantity: 3,
-      price: 2000.00,
-      onSales: true
-    },
-    {
-      id: 2,
-      img: [
-        "https://images.pexels.com/photos/2148217/pexels-photo-2148217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "https://images.pexels.com/photos/2148217/pexels-photo-2148217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      ],
-      brand: "HP",
-      name: "Pavillon dv6",
-      description: 'Ottimo Pc Portatile 45 TB ram',
-      quantity: 7,
-      price: 600.00,
-      onSales: true
-    },
-    {
-      id: 3,
-      img: [
-        "https://images.pexels.com/photos/2148217/pexels-photo-2148217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "https://images.pexels.com/photos/2148217/pexels-photo-2148217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      ],
-      brand: "Asus",
-      name: "Aspire 8",
-      description: 'Magnifico Pc Portatile 12 TB ram',
-      quantity: 5,
-      price: 450.00,
-      onSales: false
-    }
-  ]
-
-  constructor(private appService: AppService) {
+  constructor(private appService: AppService, private orderService : OrderService) {
     this.tmpArr = this.appService.cart;
+    this.orderService.productsConfirmed = this.tmpArr;
   }
 
   ngOnInit(): void {
+    if(this.tmpArr)
+      this.totalPrice = this.getTotalPrice();
   }
 
   getTotalPrice = (): number => {
@@ -67,12 +32,24 @@ export class CartComponent implements OnInit {
     return price
   }
 
-  addProduct = (index: number): number => this.tmpArr[index].quantity++;
+  addProduct = (index: number): number => {
+    this.tmpArr[index].quantity++;
+    this.orderService.productsConfirmed = this.tmpArr;
+    this.totalPrice = this.getTotalPrice();
+    return this.tmpArr[index].quantity;
+  };
 
-  decProduct = (index: number): number => this.tmpArr[index].quantity--;
-
-
-
-
+  decProduct = (index: number) => {
+      if(this.tmpArr[index].quantity === 1){
+       this.tmpArr.splice(index, 1);
+       this.orderService.productsConfirmed = this.tmpArr;
+       this.totalPrice = this.getTotalPrice();
+       return null;
+      }
+      this.tmpArr[index].quantity--
+      this.orderService.productsConfirmed = this.tmpArr;
+      this.totalPrice = this.getTotalPrice();
+      return this.tmpArr[index].quantity
+  };
 
 }

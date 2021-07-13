@@ -4,16 +4,20 @@
 
 <span class="it1"><div id="gif"><iframe src="https://giphy.com/embed/5fBH6zoy1szfjORd14s" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p></div>
 </span>
-<h2 id="conf">Il tuo ordine è confermato e verrà spedito a breve.</h2>
+<h2 id="conf">Complimenti {{customer.name }}.Il tuo ordine è confermato e verrà spedito a breve.</h2>
 
 
-<h3 id="orderN">Ecco il tuo numero d'ordine con il quale potrai verificare lo stato della spedizione: 25931452</h3>
+<h3 id="orderN">Ecco il tuo numero d'ordine con il quale potrai verificare lo stato della spedizione: {{codice}}</h3>
 
 <div class="container-delivery">
     <div class="row">
       <div class="col">
         La tua consegna è prevista per: 
-        <span id="date">Lunedì 19 luglio 2021</span>
+        <ul>
+          <li><span id="date">{{data | date}}</span></li>
+          <li><span id="date">Indirizzo: {{customer.address}}, {{customer.cap }}, {{customer.city}}</span></li>
+        </ul>
+        
       </div>
       <div class="col" id="tracking">
         Traccia il mio ordine
@@ -42,10 +46,17 @@
         <th scope="row">{{i + 1}}</th>
         <td>{{prodotto.name}}</td>
         <td>{{prodotto.quantity}}</td>
-        <td>€{{prodotto.price}}</td>
-        <td>€{{prodotto.quantity * prodotto.price}}</td>
+        <td>{{prodotto.price |currency: 'EUR'}}</td>
+        <td>{{prodotto.quantity * prodotto.price|currency: 'EUR'}}</td>
       </tr> 
     </tbody>
+    <tfoot>
+      <th scope="row">tot</th>
+        <td></td>
+        <td>{{nArticoli}}</td>
+        <td>{{prezzo|currency: 'EUR'}}</td>
+        <td>{{prezzoTot|currency: 'EUR'}}</td>
+    </tfoot>
   </table>
 
 </div>

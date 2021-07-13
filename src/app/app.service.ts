@@ -37,6 +37,7 @@ export class AppService {
 
   isAuthenticated(route: ActivatedRouteSnapshot) {
     this.canRoute = false;
+    console.log(route.routeConfig.path)
     switch (route.routeConfig.path) {
       case 'lista-messaggi':
         if (this.userRole === 'admin') {
@@ -74,6 +75,26 @@ export class AppService {
         }
         break;
       case 'checkout':
+        if (this.userRole !== null) {
+          this.canRoute = true;
+        }
+        break;   
+      case 'ordine/carrello':
+        if (this.userRole !== null) {
+          this.canRoute = true;
+        }
+        break;   
+      case 'ordine/checkout':
+        if (this.userRole !== null) {
+          this.canRoute = true;
+        }
+        break;   
+      case 'ordine/complete':
+        if (this.userRole !== null) {
+          this.canRoute = true;
+        }
+        break;  
+      case 'ordine':
         if (this.userRole !== null) {
           this.canRoute = true;
         }

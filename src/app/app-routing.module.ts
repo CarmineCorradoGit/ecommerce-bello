@@ -18,16 +18,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppGuard } from './app-guard.service';
 import { UserComponent } from './users/users.component';
 import { MessageListComponent } from './message-list/message-list.component';
+import { OrderGuard } from './order-guard.service';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
   { path: 'negozio', component: ShopComponent },
   { path: 'chi-siamo', component: ChisiamoComponent },
-  { path: 'carrello', component: OrdersComponent },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [AppGuard] },
+  { path: 'ordine', component: OrdersComponent, canActivate: [AppGuard], children: [
+    { path: 'carrello', component: CartComponent},
+    { path: 'checkout', component: CheckoutComponent, canActivate: [OrderGuard] },
+    { path: 'complete', component: CompleteComponent, canActivate: [OrderGuard] },
+  ]},
   { path: 'faq', component: FaqComponent },
   { path: 'prodotto/:id', component: ItemComponent },
-  { path: 'complete', component: CompleteComponent, canActivate: [AppGuard] },
   {
     path: 'user', component: UserComponent, children: [
       { path: 'login', component: LoginComponent, canActivate: [AppGuard] },

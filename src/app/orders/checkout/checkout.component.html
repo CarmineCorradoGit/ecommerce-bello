@@ -34,7 +34,7 @@
                 <label for="name">Cap</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" id="city" name="city" class="form-control" [(ngModel)]="cap" placeholder="City" required>
+                <input type="text" id="city" name="city" class="form-control" [(ngModel)]="city" placeholder="City" required>
                 <label for="name">City</label>
             </div>
             <div class="form-floating">
@@ -54,7 +54,10 @@
                 <input class="form-check-input" type="radio" name="paymentMethods" id="cash" value="Cash" [(ngModel)]="paymentMethod">
                 <label class="form-check-label" for="cash">Cash</label>
             </div>
-            <button type="submit" name="submitButton" class="btn btn-primary" [disabled]="!formCtrl.form.valid" (click)="consoleLog()">invia</button>
+            <div>
+                <button *ngIf="!inviati" type="submit" name="submitButton" class="btn btn-primary" [disabled]="!formCtrl.form.valid" (click)="customerSendData(formCtrl)">invia</button>
+                <p *ngIf="inviati">Dati inviati clicca su completa per concludere il tuo ordine</p>
+            </div>
         </fieldset>
     </form>
 </div>

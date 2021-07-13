@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
+import { Customer } from 'src/app/interface/customer.interface';
+import { Product } from 'src/app/interface/product.interface';
+import { OrderService } from 'src/app/order.service';
 
 @Component({
   selector: 'app-complete',
@@ -8,34 +10,32 @@ import { AppService } from 'src/app/app.service';
 })
 export class CompleteComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  data = new Date()
+
+  cart: Product[]= []
+
+  nArticoli: number;
+
+  prezzo: number;
+
+  prezzoTot: number;
+
+  customer: Customer;
+
+  codice = (Math.random()*9999)+1;
+
+  constructor(private orderService: OrderService) {
+    this.data.setDate(this.data.getDate() + 7)
+   }
 
   ngOnInit(): void {
+    let temp
+    this.cart = this.orderService.productsConfirmed;
+    this.customer = this.orderService.dataCustomer;
+    this.nArticoli = this.cart.map((elem) => elem.quantity).reduce((acc, cur)=> acc+cur);
+    this.prezzo = this.cart.map((elem) => elem.price).reduce((acc, cur)=> acc+cur);
+    this.prezzoTot = this.cart.map((elem) => elem.price*elem.quantity).reduce((acc, cur)=> acc+cur);
   }
-cart = [
-  {
-    name: "smartphone X99" ,
-    brand: "Samsung",
-    img: "link img",
-    id: 1,
-    type: "categoria x",
-    description: "bella descrizione",
-    quantity: 3,
-    price: 250,
-    onSales: false,
-},
-{
-  name: "smartphone 55S" ,
-  brand: "Huawei",
-  img: "link img",
-  id: 1,
-  type: "categoria y",
-  description: "bella descrizione bis",
-  quantity: 2,
-  price: 500,
-  onSales: false,
-}
-]
 
 }
 

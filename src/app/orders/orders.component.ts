@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AppService } from '../app.service';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-orders',
@@ -9,45 +12,63 @@ export class OrdersComponent implements OnInit {
 
   toShow = "nav-cart"
 
-  constructor() { }
+  customerDataSend = false;
+
+  constructor(private appService: AppService, private route: ActivatedRoute, private router: Router, private orderService: OrderService) { 
+    this.orderService.customerDataChange.subscribe(() => {
+      this.customerDataSend = this.orderService.customerDataSend;
+    })
+  }
 
   ngOnInit(): void {
   }
 
-  changeView(view: string){
-    let elemt =[
+  changeView(view: string) {
+    console.log('ciao da changeView')
+    let elemt = [
       'nav-cart',
       'nav-checkout',
       'nav-complete'
     ]
-    switch(view){
+    switch (view) {
       case 'next':
-        if(this.toShow !== 'nav-complete'){
+        if (this.toShow !== 'nav-complete') {
           let i = elemt.indexOf(this.toShow);
-          this.toShow = elemt[i+1];
+          if (elemt[i + 1] === 'nav-complete') {
+            if (this.customerDataSend) {
+              this.toShow = elemt[i + 1];
+              this.router.navigate(['complete'], { relativeTo: this.route });
+            }
+          } else {
+            if (this.appService.cart.length > 0)
+              this.toShow = elemt[i + 1];
+            this.router.navigate(['checkout'], { relativeTo: this.route });
+          }
         }
-        break; 
+        break;
       case 'back':
-        if(this.toShow !== 'nav-cart'){
+        if (this.toShow !== 'nav-cart') {
           let i = elemt.indexOf(this.toShow);
-          this.toShow = elemt[i-1];
+          this.toShow = elemt[i - 1];
+          this.router.navigate(['carrello'], { relativeTo: this.route });
         }
-        break; 
+        break;
       case 'nav-cart':
-        this.toShow = 'nav-cart'
-        break; 
+        this.toShow = 'nav-cart';
+        this.router.navigate(['carrello'], { relativeTo: this.route });
+        break;
       case 'nav-checkout':
-        this.toShow = 'nav-checkout'
-        break; 
+        if (this.appService.cart.length > 0) {
+          this.toShow = 'nav-checkout'
+          this.router.navigate(['checkout'], { relativeTo: this.route });
+        }
+        break;
       case 'nav-complete':
-        this.toShow = 'nav-complete'
+        if (this.customerDataSend) {
+          this.toShow = 'nav-complete'
+          this.router.navigate(['complete'], { relativeTo: this.route });
+        }
         break;
     }
-    if(view === 'next'){
-
-    } else{
-
-    }
   }
-
 }
