@@ -53,7 +53,7 @@ import { UserComponent } from './users/users.component';
     ListProductsComponent,
     SignUpComponent,
     PageNotFoundComponent,
-    FilterShopDirective,  
+    FilterShopDirective,
     DialogComponent,
     UserComponent
   ],

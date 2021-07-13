@@ -1,8 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
+<<<<<<< HEAD
 import {  Subject } from 'rxjs';
 import { Message } from './interface/message.interface';
+=======
+import { Subject } from 'rxjs';
+>>>>>>> 2472c3b630de12033a3e16d3ae682f9f0dd71aed
 import { Product } from './interface/product.interface';
 import { User } from './interface/user.interface';
 
@@ -31,45 +35,45 @@ export class AppService {
     })
   }
 
-  changeUserRole(user: 'user'|'admin' | null){
+  changeUserRole(user: 'user' | 'admin' | null) {
     this.userRoleChange.next(user)
   }
 
-  isAuthenticated(route: ActivatedRouteSnapshot){
+  isAuthenticated(route: ActivatedRouteSnapshot) {
     this.canRoute = false;
-    switch (route.routeConfig.path){
+    switch (route.routeConfig.path) {
       case 'list-prodotti':
-        if(this.userRole === 'admin'){
+        if (this.userRole === 'admin') {
           this.canRoute = true;
         }
         break;
       case 'edit-prodotto/:id':
-        if(this.userRole === 'admin'){
+        if (this.userRole === 'admin') {
           this.canRoute = true;
         }
         break;
       case 'add-prodotto':
-        if(this.userRole === 'admin'){
+        if (this.userRole === 'admin') {
           this.canRoute = true;
         }
         break;
       case 'sign-up':
-        if(this.userRole === null){
+        if (this.userRole === null) {
           this.canRoute = true;
         }
-        break; 
+        break;
       case 'login':
-        if(this.userRole === null){
+        if (this.userRole === null) {
           this.canRoute = true;
         }
         break;
       case 'complete':
-        if(this.userRole !== null){
+        if (this.userRole !== null) {
           this.canRoute = true;
         }
         break;
       case 'checkout':
-        if(this.userRole !== null){
+        if (this.userRole !== null) {
           this.canRoute = true;
         }
         break;
@@ -78,39 +82,39 @@ export class AppService {
   }
 
   getUser(id: number) {
-    return this.http.get<User>(this.url+'users');
-  } 
+    return this.http.get<User>(this.url + 'users');
+  }
 
   getUsers() {
-    return this.http.get<User[]>(this.url+'users');
-  }  
-  
+    return this.http.get<User[]>(this.url + 'users');
+  }
+
   postUser(user: User) {
-    return this.http.post<User[]>(this.url+'users', user);
-  } 
+    return this.http.post<User[]>(this.url + 'users', user);
+  }
 
 // end auth
 
 // products
 
   getProducts() {
-    return this.http.get<Product[]>(this.url+'products');
+    return this.http.get<Product[]>(this.url + 'products');
   }
-  
+
   getProduct(id: number) {
-    return this.http.get<Product>(this.url+ 'products/' +id);
-  }    
+    return this.http.get<Product>(this.url + 'products/' + id);
+  }
 
   postProduct(product: Product) {
-    return this.http.post<Product>(this.url+ 'products/', product);
-  }  
-
-  deleteProduct(id: number) {
-    return this.http.delete<Product>(this.url+ 'products/' +id);
+    return this.http.post<Product>(this.url + 'products/', product);
   }
 
-  addProduct(product : Product) {
-    return this.http.post<Product>(this.url+ 'products/', product);
+  deleteProduct(id: number) {
+    return this.http.delete<Product>(this.url + 'products/' + id);
+  }
+
+  addProduct(product: Product) {
+    return this.http.post<Product>(this.url + 'products/', product);
   }
 
   //end products

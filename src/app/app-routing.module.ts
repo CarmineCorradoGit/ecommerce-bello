@@ -23,23 +23,25 @@ const routes: Routes = [
   { path: 'negozio', component: ShopComponent },
   { path: 'chi-siamo', component: ChisiamoComponent },
   { path: 'carrello', component: OrdersComponent },
-  { path: 'checkout', component: CheckoutComponent , canActivate: [AppGuard]},
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AppGuard] },
   { path: 'faq', component: FaqComponent },
   { path: 'prodotto/:id', component: ItemComponent },
-  { path: 'complete', component: CompleteComponent , canActivate: [AppGuard]},
-  { path: 'user', component: UserComponent, children: [
-    { path: 'login', component: LoginComponent, canActivate: [AppGuard]},
-    { path: 'sign-up', component: SignUpComponent , canActivate: [AppGuard]},
-  ]},
-  { path: 'add-prodotto', component: AddProductComponent , canActivate: [AppGuard]},
-  { path: 'edit-prodotto/:id', component: AddProductComponent , canActivate: [AppGuard]},
-  { path: 'list-prodotti', component: ListProductsComponent , canActivate: [AppGuard]},
-  { path: '', component: HomeComponent , pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent},
+  { path: 'complete', component: CompleteComponent, canActivate: [AppGuard] },
+  {
+    path: 'user', component: UserComponent, children: [
+      { path: 'login', component: LoginComponent, canActivate: [AppGuard] },
+      { path: 'sign-up', component: SignUpComponent, canActivate: [AppGuard] },
+    ]
+  },
+  { path: 'add-prodotto', component: AddProductComponent, canActivate: [AppGuard] },
+  { path: 'edit-prodotto/:id', component: AddProductComponent, canActivate: [AppGuard] },
+  { path: 'list-prodotti', component: ListProductsComponent, canActivate: [AppGuard] },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
