@@ -65,11 +65,19 @@
                             <div class="d-flex flex-row align-items-center mb-4">
                                 <div class="form-outline flex-fill mb-3">
                                     <label for="img" class="form-label">Aggiungi un immagine</label>
-                                    <div class="form-group">
-                                        <i class="fas fa-plus-circle" style="color: red; font-size: 35px;"></i>
-                                        <input class="form-control mt-2" type="text" [(ngModel)]="imgUrl">
+                                    <div class="input-group">
+                                        <input class="form-control mt-2" type="text" [(ngModel)]="imgUrl" placeholder="Aggiungi link immagine">
+                                        <a (click)="addImages()"><i class="m-3 fas fa-plus-circle" style="color: red; font-size: 35px; cursor: pointer;"></i></a>
                                     </div>
                                 </div>
+
+                            </div>
+                            <div class="container list-Immages">
+                                <ul class="list-group w-50">
+                                    <ng-container *ngFor="let item of img; first as isFirst;let i = index">
+                                        <li class="list-group-item" *ngIf="!isFirst">Immagine {{i}} <a (click)="deletImmage(i)"><i class="fas fa-trash-alt"></i></a></li>
+                                    </ng-container>
+                                </ul>
                             </div>
 
                             <div class="container" #errorStamp></div>
