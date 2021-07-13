@@ -25,15 +25,37 @@ export class AddProductComponent implements OnInit {
 
   counterId: number = 0;
   imgDefault = "https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png";
+
+  editProduct: Product = null;
+
+  editMode = false;
+
   @ViewChild("errorStamp") error: ElementRef;
   httpClient: any;
   constructor(private appService: AppService, private route: ActivatedRoute, private router: Router) {
-    this.appService.getProducts().subscribe((res) => {
-      this.counterId = res.length;
-    })
   }
 
   ngOnInit(): void {
+    this.appService.getProducts().subscribe((res) => {
+      this.counterId = res.length;
+      this.route.params.subscribe((params) => {
+        if(params.id){
+          this.editMode = true;
+          this.editProduct = res.find((elem) => elem.id === params.id);
+          this.name = this.editProduct.name;
+          this.brand =  this.editProduct.brand;
+          this.img = this.editProduct.img;
+          this.imgUrl = this.editProduct.img[1];
+          this.id = this.editProduct.id;
+          this.type = this.editProduct.type;
+          this.description = this.editProduct.description;
+          this.quantity = this.editProduct.quantity;
+          this.price = this.editProduct.price;
+          this.onSales = this.editProduct.onSales;
+          this.discount = this.editProduct.discount;
+        }
+      })
+    })
   }
 
   changeDisabled(event) {
@@ -48,6 +70,7 @@ export class AddProductComponent implements OnInit {
   getImage(imageUrl: string): Observable<Blob> {
     return this.httpClient.get(imageUrl, { responseType: 'blob' });
   }
+
   addProduct() {
     console.log(this.imgUrl);
     
@@ -114,11 +137,20 @@ export class AddProductComponent implements OnInit {
       
 
       try {
-        this.appService.addProduct(obj).subscribe((res) => {
-          this.error.nativeElement.classList.add("error");
-          this.error.nativeElement.innerHTML = "Grazie per aver aggiunto il prodotto!!!";
-          this.error.nativeElement.style = "background : green; height:4%";
-        });
+        if(this.editMode){
+          obj.id = this.editProduct.id; 
+          this.appService.putProduct(obj).subscribe((res) => {
+            this.error.nativeElement.classList.add("error");
+            this.error.nativeElement.innerHTML = "Grazie per aver aggiunto il prodotto!!!";
+            this.error.nativeElement.style = "background : green; height:4%";
+          })
+        } else {
+          this.appService.addProduct(obj).subscribe((res) => {
+            this.error.nativeElement.classList.add("error");
+            this.error.nativeElement.innerHTML = "Grazie per aver aggiunto il prodotto!!!";
+            this.error.nativeElement.style = "background : green; height:4%";
+          });
+        }
         this.name="";
         this.brand="";
         this.img=[];

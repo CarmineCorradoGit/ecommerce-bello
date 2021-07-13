@@ -15,7 +15,7 @@ export class AppService {
 
   private url: string = 'https://60e7113c15387c00173e4a54.mockapi.io/';
 
-  userRole: 'user'|'admin' | null = null;
+  userRole: 'user'|'admin' | null = 'admin';
 
   userRoleChange: Subject<'user'|'admin' | null> = new Subject<'user'|'admin'|null>()
 
@@ -108,6 +108,10 @@ export class AppService {
 
   postProduct(product: Product) {
     return this.http.post<Product>(this.url + 'products/', product);
+  }
+
+  putProduct(product: Product) {
+    return this.http.put<Product>(this.url + 'products/' + product.id, product);
   }
 
   deleteProduct(id: number) {
