@@ -15,22 +15,29 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+          <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/offerte">Offerte</a>
+          <a class="nav-link" routerLink="/offerte" routerLinkActive="active">Offerte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/negozio">Shop</a>
+          <a class="nav-link" routerLink="/negozio" routerLinkActive="active">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/chi-siamo">Chi Siamo</a>
+          <a class="nav-link" routerLink="/chi-siamo" routerLinkActive="active">Chi Siamo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/faq">FAQ</a>
+          <a class="nav-link" routerLink="/faq" routerLinkActive="active">FAQ</a>
+        </li>
+        <li *ngIf="role === 'admin'" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownXxl" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownXxl">
+            <li><a class="dropdown-item" routerLink="/list-prodotti">Lista Prodotti</a></li>
+            <li><a class="dropdown-item" routerLink="/add-prodotto">Aggiungi Prodotto</a></li>
+          </ul>
         </li>
       </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="role !== null">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/carrello"><i class="fas fa-shopping-cart"></i></a>
         </li>

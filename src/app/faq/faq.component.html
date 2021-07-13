@@ -1,1 +1,80 @@
-<p>faq works!</p>
+<div class="container my-5">
+
+    <div class="row text-center">
+        <h1>Frequently Asked Questions</h1>
+        <h6 class="text-muted">Mostra <button class="btn btn-link" (click)="filterFaq(0)">TUTTE</button> | <button class="btn btn-link" (click)="filterFaq(1)">PRODOTTI</button> | <button class="btn btn-link" (click)="filterFaq(2)">SPEDIZIONE</button></h6>
+    </div>
+    <div class="row my-5">
+        <div class="col"></div>
+        <div class="col-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Cosa stai cercando?"
+                    aria-label="Cosa stai cercando?" aria-describedby="button-search">
+                <button class="btn btn-outline-secondary" type="button" id="button-search">Cerca</button>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+    
+        <div *ngFor="let faq of faqs">
+            <ng-container class="accordion-item" *ngIf="currentFilter == 0 || currentFilter == faq.category">
+    
+                <h2 class="accordion-header" [id]="'flush-heading'+faq.id">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        [attr.data-bs-target]="'#flush-collapse'+faq.id" aria-expanded="false"
+                        [attr.aria-controls]="'flush-collapse'+faq.id">
+                        {{ faq.question }}
+                    </button>
+                </h2>
+                <div [id]="'flush-collapse'+faq.id" class="accordion-collapse collapse"
+                    [attr.aria-labelledby]="'flush-heading'+faq.id" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-muted">
+                        {{ faq.answer }}
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    
+    </div>
+
+    <div class="row text-center my-5">
+        <h1>Non hai trovato quello che cercavi?</h1>
+        <h6 class="text-muted">Contattaci utilizzando il form qui in basso, un nostro operatore ti risponderà al più
+            presto.</h6>
+    </div>
+
+    <form class="my-5" (ngSubmit)="submitForm()">
+        <div class="row mb-3">
+            <div class="col-2"></div>
+            <div class="col-md-4">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" [(ngModel)]="name">
+            </div>
+            <div class="col-md-4">
+                <label for="mail" class="form-label">E-Mail</label>
+                <input type="email" class="form-control" id="mail" [(ngModel)]="email">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-2"></div>
+            <div class="col-md-8">
+                <label for="msg" class="form-label">Messaggio</label>
+                <textarea name="msg" class="form-control" id="msg" rows="5" [(ngModel)]="msg"></textarea>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 text-end">
+                <button type="submit" class="btn btn-primary">Invia</button>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+    </form>
+
+</div>

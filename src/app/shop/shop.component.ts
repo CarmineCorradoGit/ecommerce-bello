@@ -11,7 +11,9 @@ export class ShopComponent implements OnInit {
 
   products: Product[] = [];
   brands: string[] = [];
-  selectedOption: any = 'Any';
+  types: string[] = [];
+  selectedType: any = 'Any';
+  selectedBrand: any = 'Any';
 
   constructor(private appService: AppService) {
     let prodotti = this.appService.getProducts();
@@ -20,6 +22,9 @@ export class ShopComponent implements OnInit {
       data.forEach(element => {
         if(!(this.brands.includes(element.brand))){
           this.brands.push(element.brand)
+        }
+        if(!(this.types.includes(element.type))){
+          this.types.push(element.type)
         }
       });
     })
