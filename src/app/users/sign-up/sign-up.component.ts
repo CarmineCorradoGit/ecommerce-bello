@@ -64,7 +64,7 @@ export class SignUpComponent implements OnInit {
       this.error.nativeElement.innerHTML = "Le password devono essere uguali";
     } else {
       this.counterId++;
-      this.appService.userRole = 'user';
+      this.appService.changeUserRole('user'); 
       let obj: User = {
         id: this.counterId,
         role: this.appService.userRole,

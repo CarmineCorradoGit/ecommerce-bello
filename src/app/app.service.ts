@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
+import {  Subject } from 'rxjs';
 import { Product } from './interface/product.interface';
 import { User } from './interface/user.interface';
 
@@ -11,13 +12,23 @@ export class AppService {
 
   private url: string = 'https://60e7113c15387c00173e4a54.mockapi.io/';
 
-  userRole: 'user'|'admin' | null = 'admin';
+  userRole: 'user'|'admin' | null = null;
+
+  userRoleChange: Subject<'user'|'admin' | null> = new Subject<'user'|'admin'|null>()
 
   cart: Product[] = []
 
   canRoute: boolean;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.userRoleChange.subscribe((value)=>{
+      this.userRole = value;
+    })
+  }
+
+  changeUserRole(user: 'user'|'admin' | null){
+    this.userRoleChange.next(user)
+  }
 
   isAuthenticated(route: ActivatedRouteSnapshot){
     this.canRoute = false;
@@ -38,6 +49,11 @@ export class AppService {
         }
         break;
       case 'sign-up':
+        if(this.userRole === null){
+          this.canRoute = true;
+        }
+        break; 
+      case 'login':
         if(this.userRole === null){
           this.canRoute = true;
         }

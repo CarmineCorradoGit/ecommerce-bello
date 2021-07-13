@@ -16,6 +16,7 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { ListProductsComponent } from './products/list-products/list-products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppGuard } from './app-guard.service';
+import { UserComponent } from './users/users.component';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
@@ -26,8 +27,10 @@ const routes: Routes = [
   { path: 'faq', component: FaqComponent },
   { path: 'prodotto/:id', component: ItemComponent },
   { path: 'complete', component: CompleteComponent , canActivate: [AppGuard]},
-  { path: 'login', component: LoginComponent},
-  { path: 'sign-up', component: SignUpComponent , canActivate: [AppGuard]},
+  { path: 'user', component: UserComponent, children: [
+    { path: 'login', component: LoginComponent, canActivate: [AppGuard]},
+    { path: 'sign-up', component: SignUpComponent , canActivate: [AppGuard]},
+  ]},
   { path: 'add-prodotto', component: AddProductComponent , canActivate: [AppGuard]},
   { path: 'edit-prodotto/:id', component: AddProductComponent , canActivate: [AppGuard]},
   { path: 'list-prodotti', component: ListProductsComponent , canActivate: [AppGuard]},

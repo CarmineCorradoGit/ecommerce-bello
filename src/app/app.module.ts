@@ -26,7 +26,10 @@ import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppGuard } from './app-guard.service';
 import { FilterShopDirective } from './generics/directives/filter.directive';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './generics/dialog/dialog.component';
+import { UserComponent } from './users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,13 +53,17 @@ import { FilterShopDirective } from './generics/directives/filter.directive';
     ListProductsComponent,
     SignUpComponent,
     PageNotFoundComponent,
-    FilterShopDirective  
+    FilterShopDirective,  
+    DialogComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [AppGuard],
   bootstrap: [AppComponent]
