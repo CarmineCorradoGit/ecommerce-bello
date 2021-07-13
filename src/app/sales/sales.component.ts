@@ -10,14 +10,45 @@ import { Product } from '../interface/product.interface';
 export class SalesComponent implements OnInit {
 
   products: Product[];
+  brands: string[] = [];
+  types: string[] = [];
+  selectedType: any = 'Any';
+  selectedBrand: any = 'Any';
+
+
+  role: 'user'|'admin'|null = null;
 
   constructor(private appService: AppService) {
+
+    // setta role in base all'userRole attuale di appService
+    this.role = this.appService.userRole;
+    console.log('init role ' + this.role);
+
+    // controlla cambiamenti del role
+    this.appService.userRoleChange.subscribe(() => {
+      
+      console.log('userRole ' + this.appService.userRole);
+      
+      this.role = this.appService.userRole;
+
+      console.log('role ' + this.role);
+
+    })
+
     let prodotti = this.appService.getProducts();
     prodotti.subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.products = data.filter((element) => element.onSales === true)
-      console.log(this.products);
-    })
+      //console.log(this.products);
+      data.forEach(element => {
+        if(!(this.brands.includes(element.brand))){
+          this.brands.push(element.brand)
+        }
+        if(!(this.types.includes(element.type))){
+          this.types.push(element.type)
+        }
+      });
+    });
   }
 
   ngOnInit(): void {

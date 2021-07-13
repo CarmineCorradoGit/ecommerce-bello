@@ -9,14 +9,14 @@
                     <div class="thumbnail_images">
                         <ul id="thumbnail">
                             <ng-container *ngFor="let item of product.img; first as isFirst">
-                                <li (click)="changeImg(item)" *ngIf="!isFirst">
+                                <li (click)="changeImg(item)" *ngIf="!isFirst" [ngClass]="{'active': item===imgShow}">
                                     <img [src]="item" width="70">
                                 </li>
                             </ng-container>
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex flex-column justify-content-center" *ngIf="product.img.length == 1">
+                <div class="d-flex flex-column justify-content-center" *ngIf="product.img.length === 1">
                     <div class="main_image">
                         <img [src]="product.img[0]" id="main_product_image" width="350">
                     </div>
@@ -44,9 +44,8 @@
                         </div>
                         <span>441 visualizzazioni</span>
                     </div>
-                    <div class="buttons d-flex flex-row mt-5 gap-3">
-                        <button class="btn btn-outline-dark">Compra Ora</button>
-                        <button class="btn btn-outline-dark">Aggiungi al carrello</button>
+                    <div class="buttons d-flex flex-row mt-5 gap-3 justify-content-center">
+                        <button (click)="addCartElement(product.id)" class="btn btn-outline-dark">Aggiungi al carrello</button>
                     </div>
                 </div>
             </div>

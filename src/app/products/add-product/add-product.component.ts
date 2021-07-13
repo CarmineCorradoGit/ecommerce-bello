@@ -91,7 +91,7 @@ export class AddProductComponent implements OnInit {
       this.imgUrl = "";
       this.error.nativeElement.style = "background : green ;height:4%";
       this.error.nativeElement.classList.add("error");
-      this.error.nativeElement.innerHTML = "Prima immagine inserita con successo";
+      this.error.nativeElement.innerHTML = "Immagine inserita con successo";
     }
   }
 

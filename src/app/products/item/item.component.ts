@@ -9,7 +9,6 @@ import { Product } from '../../interface/product.interface';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-
   id: number;
   product: Product;
   imgShow: string;
@@ -34,11 +33,25 @@ export class ItemComponent implements OnInit {
   }
   like(event) {
     if (!this.onClick) {
-      event.target.classList.add('checked-heart');
-      this.onClick = true;
+      // event.target.classList.add('checked-heart');
+      event.target.style="color:red";
+      this.onClick = true;      
     } else {
-      event.target.classList.remove('checked-heart');
+      // event.target.classList.remove('checked-heart');
+      event.target.style="color:black";
       this.onClick = false;
+    }
+  }
+
+  addCartElement(e: number){
+    let element;
+    element = this.appService.cart.find(element => element.id === e);
+    if(element){
+      element.quantity++
+    } else {
+      element = this.product;
+      element.quantity = 1;
+      this.appService.cart.push(element);
     }
   }
 

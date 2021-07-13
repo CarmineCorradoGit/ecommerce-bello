@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fs-5 text">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" routerLink="/"><img src="../../assets/logo-nav.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,20 +24,20 @@
                 <li *ngIf="role === 'admin'" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownXxl" data-bs-toggle="dropdown" aria-expanded="false">Amministrazione</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownXxl">
-                        <li><a class="dropdown-item" routerLink="/lista-prodotti">Lista Prodotti</a></li>
-                        <li><a class="dropdown-item" routerLink="/nuovo-prodotto">Aggiungi Prodotto</a></li>
-                        <li><a class="dropdown-item" routerLink="/lista-messaggi">Lista Messaggi</a></li>
+                        <li><a class="dropdown-item" routerLinkActive="active" routerLink="/lista-prodotti">Lista Prodotti</a></li>
+                        <li><a class="dropdown-item" routerLinkActive="active" routerLink="/nuovo-prodotto">Aggiungi Prodotto</a></li>
+                        <li><a class="dropdown-item" routerLinkActive="active" routerLink="/lista-messaggi">Lista Messaggi</a></li>
                     </ul>
                 </li>
             </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="role !== null">
+            <ul class="navbar-nav" *ngIf="role !== null">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" [routerLink]="['/ordine','carrello']"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/ordine','carrello']"><i class="fas fa-shopping-cart"></i></a>
                 </li>
             </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="role === null">
+            <ul class="navbar-nav" *ngIf="role === null">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" [routerLink]="['/user','login']"><i class="fas fa-user"></i>Login</a>
+                    <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/user','login']"><i class="fas fa-user"></i> Login</a>
                 </li>
             </ul>
             <!-- <form class="d-flex">

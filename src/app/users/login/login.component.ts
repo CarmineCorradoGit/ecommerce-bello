@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     console.log('checkuser called');
 
     let logginUser = this.users.find(user => (user.email === this.email) && (user.password === this.password));
+    console.log(logginUser);
     
     if(logginUser) {
       console.log('trovato');
