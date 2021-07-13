@@ -89,7 +89,9 @@ export class FaqComponent implements OnInit {
   submitForm() {
     const allInfo = `Message from: ${this.name} - E-Mail address: ${this.email}.\n\n${this.msg}`;
     let message = {
-
+      name: this.name,
+      email: this.email,
+      message: this.msg
     }
     this.appService.postMessage(message).subscribe((res) => {
       console.log(res);

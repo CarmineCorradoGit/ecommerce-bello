@@ -38,7 +38,12 @@ export class AppService {
   isAuthenticated(route: ActivatedRouteSnapshot) {
     this.canRoute = false;
     switch (route.routeConfig.path) {
-      case 'list-prodotti':
+      case 'lista-messaggi':
+        if (this.userRole === 'admin') {
+          this.canRoute = true;
+        }
+        break;    
+      case 'lista-prodotti':
         if (this.userRole === 'admin') {
           this.canRoute = true;
         }
@@ -48,7 +53,7 @@ export class AppService {
           this.canRoute = true;
         }
         break;
-      case 'add-prodotto':
+      case 'nuovo-prodotto':
         if (this.userRole === 'admin') {
           this.canRoute = true;
         }
