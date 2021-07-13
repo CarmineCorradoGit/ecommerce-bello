@@ -11,21 +11,27 @@
     </div>
   </div>
 </section>
-<div class="container">
-  <select class="form-select" aria-label="brand" [(ngModel)]="selectedBrand" >
-    <option value="Any" selected>Any</option>
-    <option *ngFor="let brand of brands" [attr.value]="brand">{{brand}}</option>
-  </select>
-  <select class="form-select" aria-label="type" [(ngModel)]="selectedType" >
-    <option value="Any" selected>Any</option>
-    <option *ngFor="let type of types" [attr.value]="type">{{type}}</option>
-  </select>
-</div>
 <div class="album py-5 bg-light">
+  <div class="container ">
+    <div class="row justify-content-end">
+      <div class="col-2">
+        <select class="form-select" aria-label="brand" [(ngModel)]="selectedBrand" >
+          <option value="Any" selected>Any</option>
+          <option *ngFor="let brand of brands" [attr.value]="brand">{{brand}}</option>
+        </select>
+      </div>
+     <div class="col-2">
+      <select class="form-select " aria-label="type" [(ngModel)]="selectedType" >
+        <option value="Any" selected>Any</option>
+        <option *ngFor="let type of types" [attr.value]="type">{{type}}</option>
+      </select>
+     </div>
+    </div>
+    </div>
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <ng-container *ngFor="let product of products">
-        <app-card *ngIf="product.brand === selectedBrand || selectedBrand === 'Any'" [prodotto]="product" (addCartEvent)="addCartElement($event)"></app-card>
+        <app-card filterShop [currentValue]="[selectedBrand, selectedType]" [objValue]="[product.brand, product.type]" [prodotto]="product" (addCartEvent)="addCartElement($event)"></app-card>
       </ng-container>
     </div>
   </div>

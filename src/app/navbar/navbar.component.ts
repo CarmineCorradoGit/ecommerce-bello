@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AppService } from '../app.service';
 
 @Component({
@@ -6,15 +6,20 @@ import { AppService } from '../app.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
 
   role: 'user'|'admin'|null = null
 
   constructor(private appService: AppService) {
-    this.role = this.appService.userRole
+    let temp = this.appService.userRoleChange.subscribe((value) => {
+      this.role = this.appService.userRole;
+    })
    }
 
   ngOnInit(): void {
   }
 
+  ngOnChanges(change: SimpleChanges){
+    console.log(change)
+  }
 }

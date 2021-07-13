@@ -4,6 +4,7 @@ import { Product } from 'src/app/interface/product.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/generics/dialog/dialog.component';
 
+
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
