@@ -8,7 +8,7 @@ import { AppService } from '../app.service';
 })
 export class NavbarComponent implements OnInit, OnChanges {
 
-  role: 'user'|'admin'|null = 'admin'
+  role: 'user'|'admin'|null = null
 
   constructor(private appService: AppService) {
     let temp = this.appService.userRoleChange.subscribe(() => {
