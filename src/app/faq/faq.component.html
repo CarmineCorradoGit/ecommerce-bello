@@ -19,7 +19,7 @@
     <div class="accordion accordion-flush" id="accordionFlushExample">
     
         <div *ngFor="let faq of faqs">
-            <ng-container class="accordion-item" *ngIf="currentFilter == 0 || currentFilter == faq.category">
+            <ng-container class="accordion-item" *ngIf="currentFilter === 0 || currentFilter === faq.category">
     
                 <h2 class="accordion-header" [id]="'flush-heading'+faq.id">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -50,11 +50,11 @@
             <div class="col-2"></div>
             <div class="col-md-4">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" [(ngModel)]="name">
+                <input name="name" type="text" class="form-control" id="nome" [(ngModel)]="name">
             </div>
             <div class="col-md-4">
-                <label for="mail" class="form-label">E-Mail</label>
-                <input type="email" class="form-control" id="mail" [(ngModel)]="email">
+                <label for="email" class="form-label">E-Mail</label>
+                <input name="email" type="email" class="form-control" id="email" [(ngModel)]="email">
             </div>
         </div>
 

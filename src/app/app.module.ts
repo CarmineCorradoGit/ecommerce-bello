@@ -28,12 +28,8 @@ import { AppGuard } from './app-guard.service';
 import { FilterShopDirective } from './generics/directives/filter.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-<<<<<<< HEAD
-import { DialogComponent } from './generics/dialog/dialog.component';
-import { UserComponent } from './users/users.component';
-=======
 import { DialogComponent } from './generics/dialog/dialog.component'
->>>>>>> c67e046b525e661f50e490399085dfd45cf9c5d5
+import { UserComponent } from './users/users.component';
 @NgModule({
   declarations: [
     AppComponent,

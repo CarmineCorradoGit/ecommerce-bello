@@ -2,8 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import {  Subject } from 'rxjs';
+import { Message } from './interface/message.interface';
 import { Product } from './interface/product.interface';
 import { User } from './interface/user.interface';
+
+// da splittare su più service sta crescendo troppo
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +16,14 @@ export class AppService {
   private url: string = 'https://60e7113c15387c00173e4a54.mockapi.io/';
 
   userRole: 'user'|'admin' | null = null;
-<<<<<<< HEAD
 
   userRoleChange: Subject<'user'|'admin' | null> = new Subject<'user'|'admin'|null>()
-=======
->>>>>>> c67e046b525e661f50e490399085dfd45cf9c5d5
 
   cart: Product[] = []
 
   canRoute: boolean;
+
+  //auth
 
   constructor(private http: HttpClient) { 
     this.userRoleChange.subscribe((value)=>{
@@ -87,6 +89,10 @@ export class AppService {
     return this.http.post<User[]>(this.url+'users', user);
   } 
 
+// end auth
+
+// products
+
   getProducts() {
     return this.http.get<Product[]>(this.url+'products');
   }
@@ -105,5 +111,15 @@ export class AppService {
 
   addProduct(product : Product) {
     return this.http.post<Product>(this.url+ 'products/', product);
+  }
+
+  //end products
+
+  getMessages() {
+    return this.http.get<Message[]>(this.url+'messages');
+  }
+
+  postMessage(message: Message){
+    return this.http.post<Message>(this.url+ 'messages/', message);
   }
 }
