@@ -1,12 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
-<<<<<<< HEAD
 import {  Subject } from 'rxjs';
 import { Message } from './interface/message.interface';
-=======
-import { Subject } from 'rxjs';
->>>>>>> 2472c3b630de12033a3e16d3ae682f9f0dd71aed
 import { Product } from './interface/product.interface';
 import { User } from './interface/user.interface';
 
