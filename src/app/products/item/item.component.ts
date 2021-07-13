@@ -34,10 +34,12 @@ export class ItemComponent implements OnInit {
   }
   like(event) {
     if (!this.onClick) {
-      event.target.classList.add('checked-heart');
-      this.onClick = true;
+      // event.target.classList.add('checked-heart');
+      event.target.style="color:red";
+      this.onClick = true;      
     } else {
-      event.target.classList.remove('checked-heart');
+      // event.target.classList.remove('checked-heart');
+      event.target.style="color:black";
       this.onClick = false;
     }
   }
