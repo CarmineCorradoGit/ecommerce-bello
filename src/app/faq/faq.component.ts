@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { Message } from '../interface/message.interface';
 
 @Component({
   selector: 'app-faq',
@@ -87,17 +88,16 @@ export class FaqComponent implements OnInit {
   }
 
   submitForm() {
-    const allInfo = `Message from: ${this.name} - E-Mail address: ${this.email}.\n\n${this.msg}`;
-    let message = {
+    const msgInfo = `Messaggio inviato! Riepilogo:\n\nDa: ${this.name} - E-Mail: ${this.email}\nMessaggio:\n${this.msg}`;
+    let message: Message = {
       name: this.name,
       email: this.email,
       message: this.msg
     }
     this.appService.postMessage(message).subscribe((res) => {
       console.log(res);
-      alert(allInfo); 
+      alert(msgInfo); 
     });
-   
   }
 
 }
