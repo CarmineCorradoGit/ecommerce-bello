@@ -13,10 +13,10 @@ const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
   { path: 'negozio', component: ShopComponent },
   { path: 'chi-siamo', component: ChisiamoComponent },
-  { path: 'carrello', component: OrdersComponent },
+  { path: 'carrello', component: CartComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'prodotto/:id', component: ItemComponent },
-  { path: '', component: HomeComponent , pathMatch: 'full'}
+  { path: '', component: HomeComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
