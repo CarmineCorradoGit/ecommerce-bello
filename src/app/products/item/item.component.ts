@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../app.service';
 import { Product } from '../../interface/product.interface';
@@ -9,7 +9,6 @@ import { Product } from '../../interface/product.interface';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-  @Output() addCartEvent = new EventEmitter<number>();
   id: number;
   product: Product;
   imgShow: string;
