@@ -45,16 +45,16 @@
             presto.</h6>
     </div>
 
-    <form class="my-5">
+    <form class="my-5" (ngSubmit)="submitForm()">
         <div class="row mb-3">
             <div class="col-2"></div>
             <div class="col-md-4">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome">
+                <input type="text" class="form-control" id="nome" [(ngModel)]="name">
             </div>
             <div class="col-md-4">
                 <label for="mail" class="form-label">E-Mail</label>
-                <input type="email" class="form-control" id="mail">
+                <input type="email" class="form-control" id="mail" [(ngModel)]="email">
             </div>
         </div>
 
@@ -62,7 +62,7 @@
             <div class="col-2"></div>
             <div class="col-md-8">
                 <label for="msg" class="form-label">Messaggio</label>
-                <textarea name="msg" class="form-control" id="msg" rows="5"></textarea>
+                <textarea name="msg" class="form-control" id="msg" rows="5" [(ngModel)]="msg"></textarea>
             </div>
             <div class="col-2"></div>
         </div>

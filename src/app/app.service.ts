@@ -13,8 +13,11 @@ export class AppService {
   private url: string = 'https://60e7113c15387c00173e4a54.mockapi.io/';
 
   userRole: 'user'|'admin' | null = null;
+<<<<<<< HEAD
 
   userRoleChange: Subject<'user'|'admin' | null> = new Subject<'user'|'admin'|null>()
+=======
+>>>>>>> c67e046b525e661f50e490399085dfd45cf9c5d5
 
   cart: Product[] = []
 
@@ -98,5 +101,9 @@ export class AppService {
 
   deleteProduct(id: number) {
     return this.http.delete<Product>(this.url+ 'products/' +id);
+  }
+
+  addProduct(product : Product) {
+    return this.http.post<Product>(this.url+ 'products/', product);
   }
 }
