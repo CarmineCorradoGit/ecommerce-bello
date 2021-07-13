@@ -15,7 +15,25 @@ export class ShopComponent implements OnInit {
   selectedType: any = 'Any';
   selectedBrand: any = 'Any';
 
+  role: 'user'|'admin'|null = null;
+
   constructor(private appService: AppService) {
+
+    // setta role in base all'userRole attuale di appService
+    this.role = this.appService.userRole;
+    console.log('init role ' + this.role);
+
+    // controlla cambiamenti del role
+    this.appService.userRoleChange.subscribe(() => {
+      
+      console.log('userRole ' + this.appService.userRole);
+      
+      this.role = this.appService.userRole;
+
+      console.log('role ' + this.role);
+
+    })
+   
     let prodotti = this.appService.getProducts();
     prodotti.subscribe(data => {
       this.products = data;
@@ -28,6 +46,8 @@ export class ShopComponent implements OnInit {
         }
       });
     })
+
+    
   }
  
   //da spostare in un ipotetico cart service

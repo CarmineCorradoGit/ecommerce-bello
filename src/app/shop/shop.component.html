@@ -14,7 +14,7 @@
 <div class="album py-5 bg-light">
   <div class="container ">
     <div class="row ">
-      <div class="col mx-5">
+      <div class="col mx-5"  *ngIf="role === null">
         <a class="btn btn-primary" [routerLink]="['/user','login']">Accedi per fare acquisti</a>
       </div>
     </div>
