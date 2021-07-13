@@ -23,9 +23,17 @@ export class SalesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-   
+  //da spostare in un ipotetico cart service 
+
   addCartElement(e: number){
-    let element = this.products.find(element => element.id === e)
-    this.appService.cart.push(element);
+    let element;
+    element = this.appService.cart.find(element => element.id === e);
+    if(element){
+      element.quantity++
+    } else {
+      element = this.products.find(element => element.id === e);
+      element.quantity = 1;
+      this.appService.cart.push(element);
+    }
   }
 }

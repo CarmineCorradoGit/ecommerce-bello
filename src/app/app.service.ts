@@ -110,6 +110,10 @@ export class AppService {
     return this.http.post<Product>(this.url + 'products/', product);
   }
 
+  putProduct(product: Product) {
+    return this.http.put<Product>(this.url + 'products/' + product.id, product);
+  }
+
   deleteProduct(id: number) {
     return this.http.delete<Product>(this.url + 'products/' + id);
   }

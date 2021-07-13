@@ -9,7 +9,7 @@
                     <div class="thumbnail_images">
                         <ul id="thumbnail">
                             <ng-container *ngFor="let item of product.img; first as isFirst">
-                                <li (click)="changeImg(item)" *ngIf="!isFirst">
+                                <li (click)="changeImg(item)" *ngIf="!isFirst" [ngClass]="{'active': item===imgShow}">
                                     <img [src]="item" width="70">
                                 </li>
                             </ng-container>
