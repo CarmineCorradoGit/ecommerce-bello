@@ -17,29 +17,33 @@ import { ListProductsComponent } from './products/list-products/list-products.co
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppGuard } from './app-guard.service';
 import { UserComponent } from './users/users.component';
+import { MessageListComponent } from './message-list/message-list.component';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
   { path: 'negozio', component: ShopComponent },
   { path: 'chi-siamo', component: ChisiamoComponent },
   { path: 'carrello', component: OrdersComponent },
-  { path: 'checkout', component: CheckoutComponent , canActivate: [AppGuard]},
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AppGuard] },
   { path: 'faq', component: FaqComponent },
   { path: 'prodotto/:id', component: ItemComponent },
-  { path: 'complete', component: CompleteComponent , canActivate: [AppGuard]},
-  { path: 'user', component: UserComponent, children: [
-    { path: 'login', component: LoginComponent, canActivate: [AppGuard]},
-    { path: 'sign-up', component: SignUpComponent , canActivate: [AppGuard]},
-  ]},
-  { path: 'add-prodotto', component: AddProductComponent , canActivate: [AppGuard]},
-  { path: 'edit-prodotto/:id', component: AddProductComponent , canActivate: [AppGuard]},
-  { path: 'list-prodotti', component: ListProductsComponent , canActivate: [AppGuard]},
-  { path: '', component: HomeComponent , pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent},
+  { path: 'complete', component: CompleteComponent, canActivate: [AppGuard] },
+  {
+    path: 'user', component: UserComponent, children: [
+      { path: 'login', component: LoginComponent, canActivate: [AppGuard] },
+      { path: 'sign-up', component: SignUpComponent, canActivate: [AppGuard] },
+    ]
+  },
+  { path: 'lista-messaggi', component: MessageListComponent, canActivate: [AppGuard] },
+  { path: 'nuovo-prodotto', component: AddProductComponent, canActivate: [AppGuard] },
+  { path: 'edit-prodotto/:id', component: AddProductComponent, canActivate: [AppGuard] },
+  { path: 'lista-prodotti', component: ListProductsComponent, canActivate: [AppGuard] },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

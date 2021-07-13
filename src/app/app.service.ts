@@ -2,8 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import {  Subject } from 'rxjs';
+import { Message } from './interface/message.interface';
 import { Product } from './interface/product.interface';
 import { User } from './interface/user.interface';
+
+// da splittare su più service sta crescendo troppo
 
 @Injectable({
   providedIn: 'root'
@@ -20,51 +23,58 @@ export class AppService {
 
   canRoute: boolean;
 
+  //auth
+
   constructor(private http: HttpClient) { 
     this.userRoleChange.subscribe((value)=>{
       this.userRole = value;
     })
   }
 
-  changeUserRole(user: 'user'|'admin' | null){
+  changeUserRole(user: 'user' | 'admin' | null) {
     this.userRoleChange.next(user)
   }
 
-  isAuthenticated(route: ActivatedRouteSnapshot){
+  isAuthenticated(route: ActivatedRouteSnapshot) {
     this.canRoute = false;
-    switch (route.routeConfig.path){
-      case 'list-prodotti':
-        if(this.userRole === 'admin'){
+    switch (route.routeConfig.path) {
+      case 'lista-messaggi':
+        if (this.userRole === 'admin') {
+          this.canRoute = true;
+        }
+        break;    
+      case 'lista-prodotti':
+        if (this.userRole === 'admin') {
           this.canRoute = true;
         }
         break;
       case 'edit-prodotto/:id':
-        if(this.userRole === 'admin'){
+        if (this.userRole === 'admin') {
           this.canRoute = true;
         }
         break;
-      case 'add-prodotto':
-        if(this.userRole === 'admin'){
+      case 'nuovo-prodotto':
+        if (this.userRole === 'admin') {
           this.canRoute = true;
         }
         break;
       case 'sign-up':
-        if(this.userRole === null){
+        if (this.userRole === null) {
           this.canRoute = true;
         }
-        break; 
+        break;
       case 'login':
-        if(this.userRole === null){
+        if (this.userRole === null) {
           this.canRoute = true;
         }
         break;
       case 'complete':
-        if(this.userRole !== null){
+        if (this.userRole !== null) {
           this.canRoute = true;
         }
         break;
       case 'checkout':
-        if(this.userRole !== null){
+        if (this.userRole !== null) {
           this.canRoute = true;
         }
         break;
@@ -73,34 +83,48 @@ export class AppService {
   }
 
   getUser(id: number) {
-    return this.http.get<User>(this.url+'users');
-  } 
+    return this.http.get<User>(this.url + 'users');
+  }
 
   getUsers() {
-    return this.http.get<User[]>(this.url+'users');
-  }  
-  
+    return this.http.get<User[]>(this.url + 'users');
+  }
+
   postUser(user: User) {
-    return this.http.post<User[]>(this.url+'users', user);
-  } 
+    return this.http.post<User[]>(this.url + 'users', user);
+  }
+
+// end auth
+
+// products
 
   getProducts() {
-    return this.http.get<Product[]>(this.url+'products');
+    return this.http.get<Product[]>(this.url + 'products');
   }
-  
+
   getProduct(id: number) {
-    return this.http.get<Product>(this.url+ 'products/' +id);
-  }    
+    return this.http.get<Product>(this.url + 'products/' + id);
+  }
 
   postProduct(product: Product) {
-    return this.http.post<Product>(this.url+ 'products/', product);
-  }  
-
-  deleteProduct(id: number) {
-    return this.http.delete<Product>(this.url+ 'products/' +id);
+    return this.http.post<Product>(this.url + 'products/', product);
   }
 
-  addProduct(product : Product) {
-    return this.http.post<Product>(this.url+ 'products/', product);
+  deleteProduct(id: number) {
+    return this.http.delete<Product>(this.url + 'products/' + id);
+  }
+
+  addProduct(product: Product) {
+    return this.http.post<Product>(this.url + 'products/', product);
+  }
+
+  //end products
+
+  getMessages() {
+    return this.http.get<Message[]>(this.url+'messages');
+  }
+
+  postMessage(message: Message){
+    return this.http.post<Message>(this.url+ 'messages/', message);
   }
 }

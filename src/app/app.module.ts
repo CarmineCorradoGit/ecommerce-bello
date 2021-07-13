@@ -28,8 +28,9 @@ import { AppGuard } from './app-guard.service';
 import { FilterShopDirective } from './generics/directives/filter.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './generics/dialog/dialog.component';
+import { DialogComponent } from './generics/dialog/dialog.component'
 import { UserComponent } from './users/users.component';
+import { MessageListComponent } from './message-list/message-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,9 +54,10 @@ import { UserComponent } from './users/users.component';
     ListProductsComponent,
     SignUpComponent,
     PageNotFoundComponent,
-    FilterShopDirective,  
+    FilterShopDirective,
     DialogComponent,
-    UserComponent
+    UserComponent,
+    MessageListComponent
   ],
   imports: [
     BrowserModule,
