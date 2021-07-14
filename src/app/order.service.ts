@@ -54,6 +54,10 @@ export class OrderService {
     return this.canRoute;
   }
 
+  getOrders(){
+    return this.http.get<Order[]>(this.url + 'orders/');
+  }
+
   postOrder(){
     let order = {
       products: this.productsConfirmed,
