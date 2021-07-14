@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import {  Subject } from 'rxjs';
 import { Message } from './interface/message.interface';
 import { Product } from './interface/product.interface';
@@ -25,7 +25,7 @@ export class AppService {
 
   //auth
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private router: Router) { 
     this.userRoleChange.subscribe((value)=>{
       this.userRole = value;
     })
@@ -40,6 +40,11 @@ export class AppService {
     console.log(route.routeConfig.path)
     switch (route.routeConfig.path) {
       case 'lista-messaggi':
+        if (this.userRole === 'admin') {
+          this.canRoute = true;
+        }
+        break; 
+        case 'lista-ordini':
         if (this.userRole === 'admin') {
           this.canRoute = true;
         }
@@ -99,6 +104,9 @@ export class AppService {
           this.canRoute = true;
         }
         break;
+    }
+    if(!this.canRoute){
+      this.router.navigate(['/']);
     }
     return this.canRoute;
   }
