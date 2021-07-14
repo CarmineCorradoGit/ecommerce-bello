@@ -19,6 +19,7 @@ import { AppGuard } from './app-guard.service';
 import { UserComponent } from './users/users.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { OrderGuard } from './order-guard.service';
+import { OrderListComponent } from './order-list/order-list.component';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
     ]
   },
   { path: 'lista-messaggi', component: MessageListComponent, canActivate: [AppGuard] },
+  { path: 'lista-ordini', component: OrderListComponent},
   { path: 'nuovo-prodotto', component: AddProductComponent, canActivate: [AppGuard] },
   { path: 'edit-prodotto/:id', component: AddProductComponent, canActivate: [AppGuard] },
   { path: 'lista-prodotti', component: ListProductsComponent, canActivate: [AppGuard] },
