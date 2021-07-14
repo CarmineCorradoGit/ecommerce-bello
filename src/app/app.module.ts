@@ -32,6 +32,7 @@ import { DialogComponent } from './generics/dialog/dialog.component'
 import { UserComponent } from './users/users.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { OrderGuard } from './order-guard.service';
+import { OrderListComponent } from './order-list/order-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import { OrderGuard } from './order-guard.service';
     FilterShopDirective,
     DialogComponent,
     UserComponent,
-    MessageListComponent
+    MessageListComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
