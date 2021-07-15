@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { Product } from 'src/app/interface/product.interface';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from 'src/app/generics/dialog/dialog.component';
+import { DialogComponent } from 'src/app/generics/components/dialog/dialog.component';
 
 
 @Component({
