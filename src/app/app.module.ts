@@ -62,7 +62,7 @@ import { OrderListComponent } from './order-list/order-list.component';
     DialogComponent,
     UserComponent,
     MessageListComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
     OrderListComponent
   ],
   imports: [
