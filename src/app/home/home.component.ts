@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   slides: Slide[] = [
     {
-      title: 'ZUPEMART',
+      title: 'ZUPERMART',
       description: 'Uno dei migliori siti di vendita di prodotti tech',
       img: 'https://datarespons.solutions/wp-content/uploads/hi-tech-industr-scandinavia-bg.jpg'
     }, {
