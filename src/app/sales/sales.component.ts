@@ -8,7 +8,8 @@ import { Product } from '../interface/product.interface';
   styleUrls: ['./sales.component.scss']
 })
 export class SalesComponent implements OnInit, OnDestroy {
-
+  
+  filterString: string = '';
   products: Product[];
   brands: string[] = [];
   types: string[] = [];

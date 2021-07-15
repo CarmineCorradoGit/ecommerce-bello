@@ -33,6 +33,7 @@ import { UserComponent } from './users/users.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { OrderGuard } from './order-guard.service';
 import { OrderListComponent } from './order-list/order-list.component';
+import { FilterSearchPipe } from './generics/pipes/filter-search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { OrderListComponent } from './order-list/order-list.component';
     DialogComponent,
     UserComponent,
     MessageListComponent,
-    OrderListComponent
+    OrderListComponent,
+    FilterSearchPipe
   ],
   imports: [
     BrowserModule,

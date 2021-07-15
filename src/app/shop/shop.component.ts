@@ -9,6 +9,7 @@ import { Product } from '../interface/product.interface';
 })
 export class ShopComponent implements OnInit, OnDestroy {
 
+  filterString: string = '';
   products: Product[] = [];
   brands: string[] = [];
   types: string[] = [];
