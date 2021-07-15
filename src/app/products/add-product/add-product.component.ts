@@ -152,7 +152,7 @@ export class AddProductComponent implements OnInit {
           obj.id = this.editProduct.id; 
           this.appService.putProduct(obj).subscribe((res) => {
             this.error.nativeElement.classList.add("error");
-            this.error.nativeElement.innerHTML = "Grazie per aver aggiunto il prodotto!!!";
+            this.error.nativeElement.innerHTML = "Prodotto Modificato";
             this.error.nativeElement.style = "background : green; height:4%";
           })
         } else {
@@ -162,17 +162,18 @@ export class AddProductComponent implements OnInit {
             this.error.nativeElement.style = "background : green; height:4%";
           });
         }
-        this.name="";
-        this.brand="";
-        this.img=[];
-        this.imgUrl = "";
-        this.type="";
-        this.description="";
-        this.quantity=0;
-        this.price=0;
-        this.onSales=false,
-        this.discount=0;
-
+        if(!this.editMode){
+          this.name="";
+          this.brand="";
+          this.img=[];
+          this.imgUrl = "";
+          this.type="";
+          this.description="";
+          this.quantity=0;
+          this.price=0;
+          this.onSales=false,
+          this.discount=0;
+        }
         setTimeout(() => {
           this.router.navigate(['../negozio'], { relativeTo: this.route });
         }, 8000);

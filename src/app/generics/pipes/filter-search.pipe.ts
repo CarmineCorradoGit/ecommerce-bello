@@ -9,11 +9,13 @@ export class FilterSearchPipe implements PipeTransform {
     if(filter === null || filter === ''){
       return value
     }
+    filter.toLowerCase();
     let tempArray:any = [], addElem: boolean;
     for(let item of value){
       addElem = false
       for(let props of args){
-        if(item[props].includes(filter)){
+        let tempString = item[props];
+        if(tempString.toLowerCase().includes(filter)){
           addElem = true
         }
       }

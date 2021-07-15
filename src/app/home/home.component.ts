@@ -1,5 +1,8 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { AppService } from '../app.service';
+import { Product } from '../interface/product.interface';
 import { Slide } from '../interface/slide.interface';
 
 @Component({
@@ -37,6 +40,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     },
   ]
 
+  prodotti: Product[]=[];
+
   index = 0;
   interval: any;
   isActive = false;
@@ -44,8 +49,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   carouselId = "hpSlider";
 
-  constructor() {
-
+  constructor(private appService: AppService) {
+    this.appService.getProducts().subscribe((res) => {
+      this.prodotti = res.splice(0, 4);
+    })
   }
 
 

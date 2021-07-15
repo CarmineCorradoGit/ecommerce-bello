@@ -18,29 +18,15 @@
 				<h2>Popular Products</h2>
 				<p>Alcuni dei nostri prodotti più acquistati</p>
 			</div>
-			<div class="product product-1">
-				<figure> <img src="https://miglior-notebook.it/wp-content/uploads/2018/12/Asus-VivoBook-S-1024x679.jpg" alt="product-image">
-					<figcaption>Asus Vivobook-S</figcaption>
-					<figcaption>800.00 €</figcaption>
-				</figure>
-			</div>
-			<div class="product product-2">
-				<figure> <img src="https://miglior-notebook.it/wp-content/uploads/2018/12/Acer-Chromebook-1024x630.jpg" alt="product-image">
-					<figcaption>Acer Chromebook</figcaption>
-					<figcaption>700.00 €</figcaption>
-				</figure>
-			</div>
-			<div class="product product-3">
-				<figure> <img src="https://miglior-notebook.it/wp-content/uploads/2018/12/HP-15-da0125nl.jpg" alt="product-image">
-					<figcaption>Notebook Hp</figcaption>
-					<figcaption>900.00 €</figcaption>
-				</figure>
-			</div>
-			<div class="product product-4">
-				<figure> <img src="https://miglior-notebook.it/wp-content/uploads/2018/12/HP-Pavilion.jpg" alt="product-image">
-					<figcaption>Hp Elitebook</figcaption>
-					<figcaption>950.00 €</figcaption>
-				</figure>
+			<div class="row">
+				<div class="col-12 col-xl-3 col-md-6" *ngFor="let prod of prodotti">
+					<div class="product product-1">
+						<figure> <img [src]="prod.img[1]" alt="product-image">
+							<figcaption>{{prod.name}}</figcaption>
+							<figcaption>{{prod.price | currency:'EUR'}}</figcaption>
+						</figure>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

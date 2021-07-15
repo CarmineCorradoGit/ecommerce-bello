@@ -37,7 +37,6 @@ export class AppService {
 
   isAuthenticated(route: ActivatedRouteSnapshot) {
     this.canRoute = false;
-    console.log(route.routeConfig.path)
     switch (route.routeConfig.path) {
       case 'lista-messaggi':
         if (this.userRole === 'admin') {
@@ -106,7 +105,11 @@ export class AppService {
         break;
     }
     if(!this.canRoute){
-      this.router.navigate(['/']);
+      if(route.routeConfig.path ==='ordine'){
+        this.router.navigate(['/user','login']);
+      } else {
+        this.router.navigate(['/']);
+      }
     }
     return this.canRoute;
   }

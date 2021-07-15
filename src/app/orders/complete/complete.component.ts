@@ -22,7 +22,7 @@ export class CompleteComponent implements OnInit {
 
   customer: Customer;
 
-  codice = (Math.random()*9999)+1;
+  codice = Math.floor((Math.random()*9999)+1);
 
   constructor(private orderService: OrderService) {
     this.data.setDate(this.data.getDate() + 7)
