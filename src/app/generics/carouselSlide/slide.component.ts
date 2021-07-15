@@ -8,16 +8,16 @@ import { Slide } from 'src/app/interface/slide.interface';
     <div class="carousel-indicators">
         <button *ngFor="let slide of slides;index as i" (click)="selectSlide(i)" type="button" attr.data-bs-target="{{'#' + carouselId}}" attr.data-slide-to="{{i}}" [ngClass]="{'active': i == currentIndex}" attr.aria-label="'Slide {{i}}'" attr.aria-current="{{i == currentIndex}}"></button>
     </div>
-    
+
     <div class="carousel-inner">
     <ng-container *ngFor="let slide of slides; index as i;">
         <div [ngClass]="{'active': i == currentIndex}" class="carousel-item">
-          <img src="{{slide.img}}" alt="">  
+          <img src="{{slide.img}}" alt="">
           <article class="container">
             <div class="carousel-caption text-start">
               <h1>{{slide.title}}</h1>
               <p>{{slide.description}}</p>
-              <p><a class="btn btn-lg btn-primary" href="#">{{slide.button}}</a></p>
+
             </div>
           </article>
         </div>
@@ -40,7 +40,6 @@ export class SlideComponent implements OnInit {
   @Input() slides: Slide[] = [{
     title: '',
     description: '',
-    button: '',
     img: ''
   }];
 
@@ -65,9 +64,9 @@ export class SlideComponent implements OnInit {
   }
 
   carouselSlide(s: string) {
-    
+
     setTimeout(() => {
-      if (s === 'prev') {      
+      if (s === 'prev') {
         if (this.currentIndex === 0) {
           this.currentIndex = this.slides.length - 1;
         } else {
@@ -80,7 +79,7 @@ export class SlideComponent implements OnInit {
           this.currentIndex++
         }
       }
-    
+
     }, 1000);
   }
   ngOnInit(): void {

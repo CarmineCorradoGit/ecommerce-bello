@@ -45,6 +45,9 @@ export class OrdersComponent implements OnInit, OnDestroy {
           if (elemt[i + 1] === 'nav-complete') {
             if (this.customerDataSend) {
               this.toShow = elemt[i + 1];
+              this.orderService.postOrder().subscribe((res)=>{
+                console.log(res)
+              });
               this.router.navigate(['complete'], { relativeTo: this.route });
             }
           } else {

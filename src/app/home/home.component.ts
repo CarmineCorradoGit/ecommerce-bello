@@ -11,35 +11,29 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   slides: Slide[] = [
     {
-      title: 'titolo1',
-      description: 'descrizione1',
-      button: 'bottone1',
-      img: 'https://via.placeholder.com/1920x500'
+      title: 'ZUPEMART',
+      description: 'Uno dei migliori siti di vendita di prodotti tech',
+      img: 'https://datarespons.solutions/wp-content/uploads/hi-tech-industr-scandinavia-bg.jpg'
     }, {
-      title: 'titolo2',
-      description: 'descrizione2',
-      button: 'bottone2',
-      img: 'https://via.placeholder.com/1920x500'
+      title: 'Accessori PS5',
+      description: 'Dualsense Ps5, Cuffie da Gaming',
+      img: 'https://gamespecialist.co/wp-content/uploads/2021/02/bannerps5-1.jpg'
     }, {
-      title: 'titolo3',
-      description: 'descrizione3',
-      button: 'bottone3',
-      img: 'https://via.placeholder.com/1920x500'
+      title: 'Notebook HP ZBOOK CREATE',
+      description: 'IL NUOVO STANDARD PER I PROFESSIONISTI DELLA TECNICA E DELLA CREATIVITÀ',
+      img: 'https://store.hp.com/UkStore/Html/Merch/Banners/Hero_image-DESKTOP_5f0d7512f0210.png'
     }, {
-      title: 'titolo4',
-      description: 'descrizione4',
-      button: 'bottone4',
-      img: 'https://via.placeholder.com/1920x500'
+      title: 'Iphone11,11Pro e Max',
+      description: "il pù potente Iphone",
+      img: 'https://www.bechtle.com/dam/jcr:be14f920-9691-435d-a394-77cb1fa093e5/cw37_stage1_apple-iphone11-eu.jpg'
     }, {
-      title: 'titolo5',
-      description: 'descrizione5',
-      button: 'bottone5',
-      img: 'https://via.placeholder.com/1920x500'
+      title: 'Ultrabook Lenovo ThinkPad T.',
+      description: 'Il simbolo del business ultra-mobile.',
+      img: 'https://www.bechtle.com/dam/jcr:b707a872-536b-4b95-8004-46b5e8d7be72/cw31_stage1_lenovo.jpg'
     }, {
-      title: 'titolo6',
-      description: 'descrizione6',
-      button: 'bottone6',
-      img: 'https://via.placeholder.com/1920x500'
+      title: 'Scheda Madre MSI',
+      description: 'Scheda Madre da Gaming',
+      img: 'https://cdn.shopify.com/s/files/1/2173/4373/files/MSI_Z490_Banner_1920x.jpg?v=1606876819'
     },
   ]
 

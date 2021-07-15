@@ -33,6 +33,7 @@ import { UserComponent } from './users/users.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { OrderGuard } from './order-guard.service';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     UserComponent,
     MessageListComponent,
     ScrollToTopComponent
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
