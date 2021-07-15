@@ -31,19 +31,22 @@
                     </ul>
                 </li>
             </ul>
-            <ul class="navbar-nav" *ngIf="role !== null">
-                <li class="nav-item">
-                    <a class="nav-link position-relative" aria-current="page" routerLinkActive="active" [routerLink]="['/ordine','carrello']">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute bottom-0 start-90 translate-middle badge rounded-pill bg-danger rounded-circle">{{cartLength}}</span>
-                    </a>
-                </li>
-            </ul>
-            <ul class="navbar-nav" *ngIf="role === null">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/user','login']"><i class="fas fa-user"></i> Login</a>
-                </li>
-            </ul>
+            <div id="login-chart-logo">
+                <ul class="navbar-nav" *ngIf="role !== null">
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" aria-current="page" routerLinkActive="active" [routerLink]="['/ordine','carrello']">
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                            <span class="position-absolute bottom-0 start-90 translate-middle badge rounded-pill bg-danger rounded-circle">{{cartLength}}</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" *ngIf="role === null">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/user','login']"><i class="fas fa-user"></i> Login</a>
+                    </li>
+                </ul>
+            </div>
+           
             <!-- <form class="d-flex">
         <input
           class="form-control me-2"
