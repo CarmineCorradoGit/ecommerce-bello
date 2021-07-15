@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
-import { Message } from '../interface/message.interface';
+import { AppService } from '../../app.service';
+import { Message } from '../../interface/message.interface';
 
 @Component({
   selector: 'app-faq',

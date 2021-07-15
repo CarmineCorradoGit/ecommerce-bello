@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
-import { Product } from '../interface/product.interface';
+import { AppService } from '../../app.service';
+import { Product } from '../../interface/product.interface';
 
 @Component({
   selector: 'app-sales',

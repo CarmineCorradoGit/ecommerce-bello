@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './orders/cart/cart.component';
-import { ChisiamoComponent } from './chisiamo/chisiamo.component';
-import { FaqComponent } from './faq/faq.component';
+import { ChisiamoComponent } from './info/chisiamo/chisiamo.component';
+import { FaqComponent } from './info/faq/faq.component';
 import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './products/item/item.component';
-import { SalesComponent } from './sales/sales.component';
-import { ShopComponent } from './shop/shop.component';
+import { SalesComponent } from './vetrine/sales/sales.component';
+import { ShopComponent } from './vetrine/shop/shop.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CompleteComponent } from './orders/complete/complete.component'
 import { CheckoutComponent } from './orders/checkout/checkout.component';
 import { LoginComponent } from './users/login/login.component';
 import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
-import { ListProductsComponent } from './products/list-products/list-products.component';
+import { ListProductsComponent } from './liste/list-products/list-products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppGuard } from './app-guard.service';
 import { UserComponent } from './users/users.component';
-import { MessageListComponent } from './message-list/message-list.component';
+import { MessageListComponent } from './liste/message-list/message-list.component';
 import { OrderGuard } from './order-guard.service';
-import { OrderListComponent } from './order-list/order-list.component';
+import { OrderListComponent } from './liste/order-list/order-list.component';
 
 const routes: Routes = [
   { path: 'offerte', component: SalesComponent },
