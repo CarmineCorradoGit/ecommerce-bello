@@ -1,9 +1,13 @@
 .accordion-button:not(.collapsed) {
-    color: #0a58ca;
+    color: #ff962b;
     background-color: #fff7f0;
 }
 
 .accordion-button:hover, .btn-link:hover {
+    color: #0a58ca;
+}
+
+h1 {
     color: #ff962b;
 }
 
