@@ -32,6 +32,8 @@ import { DialogComponent } from './generics/dialog/dialog.component'
 import { UserComponent } from './users/users.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { OrderGuard } from './order-guard.service';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,8 @@ import { OrderGuard } from './order-guard.service';
     FilterShopDirective,
     DialogComponent,
     UserComponent,
-    MessageListComponent
+    MessageListComponent,
+    ScrollToTopComponent
   ],
   imports: [
     BrowserModule,
