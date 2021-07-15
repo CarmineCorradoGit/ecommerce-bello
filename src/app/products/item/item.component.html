@@ -33,7 +33,8 @@
                     <div class="mt-2 pr-3 content">
                         <p>{{product.description}}</p>
                     </div>
-                    <h3>{{product.price|currency: 'EUR'}} </h3>
+                    <h3 *ngIf="product.onSales === false" class="float-end price">{{product.price}} &euro;</h3>
+                    <h3 *ngIf="product.onSales === true" class="float-end price"><span class="badge bg-warning">in offerta a {{product.price - product.price * product.discount /100 |currency: 'EUR'}}</span>&nbsp;<s>{{product.price |currency: 'EUR'}}</s></h3>
                     <div class="ratings d-flex flex-row align-items-center">
                         <div class="d-flex flex-row">
                             <i class='fa fa-star checked'></i>
