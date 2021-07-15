@@ -32,6 +32,7 @@ import { DialogComponent } from './generics/dialog/dialog.component'
 import { UserComponent } from './users/users.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { OrderGuard } from './order-guard.service';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { FilterSearchPipe } from './generics/pipes/filter-search.pipe';
 @NgModule({
@@ -62,7 +63,9 @@ import { FilterSearchPipe } from './generics/pipes/filter-search.pipe';
     UserComponent,
     MessageListComponent,
     OrderListComponent,
-    FilterSearchPipe
+    FilterSearchPipe,
+    ScrollToTopComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
