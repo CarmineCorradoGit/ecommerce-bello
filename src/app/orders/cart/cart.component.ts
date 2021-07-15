@@ -26,7 +26,16 @@ export class CartComponent implements OnInit {
 
   getTotalPrice = (): number => {
     let price: number = 0;
-    const priceProducts: any[] = this.tmpArr.map(product => product.price * product.quantity);
+
+    const priceProducts: any[] = this.tmpArr.map(product => {
+      if (product.onSales === false) {       
+         return product.price * product.quantity;
+      }
+      else {     // se il prodotto è in offerta calcola il relativo prezzo
+         return (product.price - (product.price * product.discount / 100)) * product.quantity;
+      }
+    });
+    
     priceProducts.forEach(pricePd => price += pricePd);
     console.log(price);
     return price

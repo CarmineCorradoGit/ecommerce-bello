@@ -19,8 +19,9 @@
                 </div>
             </div>
 
-            <p>{{product.onSales}} </p>
-            <p>{{product.price | currency: 'EUR'}} </p>
+            <p *ngIf="product.onSales === false" class="float-end price">{{product.price * product.quantity}} &euro;</p>
+            <p *ngIf="product.onSales === true" class="float-end price">{{(product.price - product.price * product.discount /100) * product.quantity |currency: 'EUR'}}</p>
+
         </div>
     </div>
 </section>
