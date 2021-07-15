@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Product } from '../interface/product.interface';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-shop',
@@ -64,6 +65,7 @@ temp: any;
       element = this.products.find(element => element.id === e);
       element.quantity = 1;
       this.appService.cart.push(element);
+      this.appService.changeCartLength();
     }
   }
 

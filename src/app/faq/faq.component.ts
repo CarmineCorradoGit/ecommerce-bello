@@ -13,6 +13,10 @@ export class FaqComponent implements OnInit {
   email: string = '';
   msg: string = '';
 
+  isError = false;
+  showMessage = false;
+  errorMessage: string ='';
+
   currentFilter: number = 0;
 
   faqs = [
@@ -88,8 +92,10 @@ export class FaqComponent implements OnInit {
   }
 
   submitForm() {
-    if (this.msg != '' || this.name != '' || this.email != '' ) {
-      const msgInfo = `Messaggio inviato! Riepilogo:\n\nDa: ${this.name} - E-Mail: ${this.email}\nMessaggio:\n${this.msg}`;
+    this.showMessage = false;
+    this.isError = false;
+    if (this.msg != '' && this.name != '' && this.email != '' ) {
+      this.errorMessage = `Messaggio inviato! Riepilogo:\n\nDa: ${this.name} - E-Mail: ${this.email}\nMessaggio:\n${this.msg}`;
       let message: Message = {
         name: this.name,
         email: this.email,
@@ -97,13 +103,15 @@ export class FaqComponent implements OnInit {
       }
       this.appService.postMessage(message).subscribe((res) => {
         console.log(res);
-        alert(msgInfo);
+        this.showMessage = true;
       });
       this.name = '';
       this.email = '';
       this.msg = '';
     } else {
-      alert('Tutti i campi sono obbligatori!')
+      this.showMessage = true;
+      this.isError = true;
+      this.errorMessage = 'Tutti i campi sono obbligatori!';
     }
   }
 

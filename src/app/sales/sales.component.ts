@@ -8,13 +8,13 @@ import { Product } from '../interface/product.interface';
   styleUrls: ['./sales.component.scss']
 })
 export class SalesComponent implements OnInit, OnDestroy {
-  
-  filterString: string = '';
+
   products: Product[];
   brands: string[] = [];
   types: string[] = [];
   selectedType: any = 'Any';
   selectedBrand: any = 'Any';
+  filterString: string = '';
 
   temp: any;
 
@@ -71,6 +71,7 @@ ngOnDestroy(){
       element = this.products.find(element => element.id === e);
       element.quantity = 1;
       this.appService.cart.push(element);
+      this.appService.changeCartLength();
     }
   }
 }

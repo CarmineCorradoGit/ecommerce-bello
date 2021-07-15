@@ -49,7 +49,16 @@ export class SlideComponent implements OnInit {
   interval: any;
 
   constructor() {
+    this.startInterval()
+  }
 
+  selectSlide(i: number) {
+    clearInterval(this.interval);
+    this.currentIndex = i;
+    this.startInterval()
+  }
+
+  startInterval() {
     this.interval = setInterval(() => {
       if (this.currentIndex === this.slides.length - 1) {
         this.currentIndex = 0;
@@ -59,13 +68,8 @@ export class SlideComponent implements OnInit {
     }, 5000)
   }
 
-  selectSlide(i: number) {
-    this.currentIndex = i;
-  }
-
   carouselSlide(s: string) {
-
-    setTimeout(() => {
+    clearInterval(this.interval);
       if (s === 'prev') {
         if (this.currentIndex === 0) {
           this.currentIndex = this.slides.length - 1;
@@ -79,8 +83,7 @@ export class SlideComponent implements OnInit {
           this.currentIndex++
         }
       }
-
-    }, 1000);
+      this.startInterval()
   }
   ngOnInit(): void {
 

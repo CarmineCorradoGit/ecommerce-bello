@@ -19,7 +19,7 @@
 				<p>Alcuni dei nostri prodotti più acquistati</p>
 			</div>
 			<div class="row">
-				<div class="col-12 col-xl-3 col-md-6" *ngFor="let prod of prodotti">
+				<div class="col-12 col-xl-3 col-md-6" *ngFor="let prod of prodotti" [routerLink]="['/prodotto', prod.id]">
 					<div class="product product-1">
 						<figure> <img [src]="prod.img[1]" alt="product-image">
 							<figcaption>{{prod.name}}</figcaption>

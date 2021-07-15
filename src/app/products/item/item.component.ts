@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OrderService } from 'src/app/order.service';
 import { AppService } from '../../app.service';
 import { Product } from '../../interface/product.interface';
 
@@ -52,6 +53,7 @@ export class ItemComponent implements OnInit {
       element = this.product;
       element.quantity = 1;
       this.appService.cart.push(element);
+      this.appService.changeCartLength();
     }
   }
 

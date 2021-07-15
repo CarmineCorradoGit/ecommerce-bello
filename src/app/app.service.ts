@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import {  Subject } from 'rxjs';
@@ -23,12 +24,24 @@ export class AppService {
 
   canRoute: boolean;
 
+  cartLengthChange: Subject<Number>= new Subject<Number>();
+
+  cartLength: Number;
+
   //auth
 
   constructor(private http: HttpClient, private router: Router) { 
     this.userRoleChange.subscribe((value)=>{
       this.userRole = value;
+    }) 
+    this.cartLengthChange.subscribe((value)=>{
+      this.cartLength = value;
     })
+  }
+
+  
+  changeCartLength() {
+    this.cartLengthChange.next(this.cart.length)
   }
 
   changeUserRole(user: 'user' | 'admin' | null) {

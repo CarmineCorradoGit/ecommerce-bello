@@ -38,7 +38,7 @@
     </div>
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <ng-container *ngFor="let product of products | filterSearch:filterString:'brand':'name':'type'">
+      <ng-container *ngFor="let product of products | filterSearch:filterString:'brand':'name':'type':'description'">
         <app-card filterShop [currentValue]="[selectedBrand, selectedType]" [objValue]="[product.brand, product.type]" [prodotto]="product" (addCartEvent)="addCartElement($event)" [routerLink]="['/ordine','carrello']"></app-card>
       </ng-container>
     </div>
