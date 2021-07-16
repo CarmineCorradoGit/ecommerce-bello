@@ -21,6 +21,10 @@ export class NavbarComponent implements OnInit, OnChanges {
     })
    }
 
+   logOut(){
+     this.appService.changeUserRole(null);
+   }
+
   ngOnInit(): void {
   }
 
