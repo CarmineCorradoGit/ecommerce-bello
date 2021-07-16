@@ -43,7 +43,7 @@
                 <li class="nav-item" *ngIf="role === null">
                     <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="['/user','login']"><i class="fas fa-user"></i> Login</a>
                 </li>
-                 <li class="nav-item" *ngIf="role !== null" (click)="logOut()">
+                 <li class="nav-item" *ngIf="role !== null" style="cursor: pointer;" (click)="logOut()">
                     <a class="nav-link" aria-current="page" >Logout</a>
                 </li>
             </ul>
