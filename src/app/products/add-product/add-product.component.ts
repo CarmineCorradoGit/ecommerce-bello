@@ -170,7 +170,7 @@ export class AddProductComponent implements OnInit {
           this.discount=0;
         }
         setTimeout(() => {
-          this.router.navigate(['../negozio'], { relativeTo: this.route });
+          this.router.navigate(['/']);
         }, 4000);
       } catch (error) {
         this.error.nativeElement.classList.add("error");
