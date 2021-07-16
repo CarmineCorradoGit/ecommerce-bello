@@ -23,6 +23,8 @@ export class NavbarComponent implements OnInit, OnChanges {
 
    logOut(){
      this.appService.changeUserRole(null);
+     this.appService.cart = [];
+     this.appService.changeCartLength();
    }
 
   ngOnInit(): void {

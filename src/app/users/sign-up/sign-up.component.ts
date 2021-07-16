@@ -64,7 +64,6 @@ export class SignUpComponent implements OnInit {
       this.error.nativeElement.innerHTML = "Le password devono essere uguali";
     } else {
       this.counterId++;
-      this.appService.changeUserRole('user'); 
       let obj: User = {
         id: this.counterId,
         role: this.appService.userRole,
@@ -79,6 +78,7 @@ export class SignUpComponent implements OnInit {
       }
       try {
         this.appService.postUser(obj).subscribe((res) => {
+          this.appService.changeUserRole('user'); 
           this.error.nativeElement.classList.add("error");
           this.error.nativeElement.innerHTML = "Grazie per esserti registrato!!! <br>Benvenuto " + this.name;
           this.error.nativeElement.style="background : green; height:9%";
@@ -92,8 +92,8 @@ export class SignUpComponent implements OnInit {
           this.password = "";
           this.Cpass = "";
           setTimeout(() => {
-            this.router.navigate(['../'], { relativeTo: this.route });
-          }, 8000);
+            this.router.navigate(['/']);
+          }, 5000);
         })
       } catch (error) {
         this.error.nativeElement.classList.add("error");
