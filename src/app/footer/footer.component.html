@@ -8,8 +8,8 @@
                   <ul>
                       <li><a routerLink="/negozio">Shop</a></li>
                       <li><a routerLink="/offerte">Offerte</a></li>
-                      <li><a routerLink="/user/sign-up">Iscriviti</a></li>
-                      <li><a routerLink="/user/login">Login</a></li>
+                      <li><a [routerLink]="['/user','sign-up']">Iscriviti</a></li>
+                      <li><a [routerLink]="['/user','login']">Login</a></li>
                   </ul>
               </div>
               <div class="col-sm-6 col-md-3 item">

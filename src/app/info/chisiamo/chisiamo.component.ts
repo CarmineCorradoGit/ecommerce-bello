@@ -13,7 +13,7 @@ export class ChisiamoComponent implements OnInit {
       descrizione:"La consegna avviene in tutta Italia tramite un servizio di tracciamento messo a disposizione del cliente,dopo aver effettuato l'acquisto."},
     { span:"2",
      titolo:"Pagamento sicuro",
-     descrizione:"Il pagamento online avviene in maniera totalmente sicura e senza alcubn tipo di fregature.Inoltre accettiamo tutte le carte di credito e paypal."},
+     descrizione:"Il pagamento online avviene in maniera totalmente sicura e senza alcun tipo di fregatura.Inoltre accettiamo tutte le carte di credito e paypal."},
     { span:"3",
      titolo:"Garanzia e sicurezza",
      descrizione:"Ogni prodotto da noi venduto dispone di una resa in caso di danno dovuto alla consegna e una garanzia minima di due anni."}
