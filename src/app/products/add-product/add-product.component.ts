@@ -60,25 +60,22 @@ export class AddProductComponent implements OnInit {
 
   changeDisabled(event) {
     const value = event.target.value;
-    if (value === 'si') {
+    if (value === 'true') {
       this.isEnabled = false;
     } else {
       this.isEnabled = true;
     }
   }
   controlUrlImg(link: string) {
-    console.log("holaaa0");
     if (link.startsWith("https://")) {
       return true;
     } else {
-      console.log("holaaa1");
       return false;
     }
   }
 
   addImages() {
     if (!this.controlUrlImg(this.imgUrl)) {
-      console.log("holaaa2");
       this.error.nativeElement.style = "height:4%";
       this.error.nativeElement.classList.add("error");
       this.error.nativeElement.innerHTML = "Inserisci bene il link";
@@ -100,8 +97,6 @@ export class AddProductComponent implements OnInit {
   }
 
   addProduct() {
-    console.log(this.imgUrl);
-
     if (this.name === "") {
       this.error.nativeElement.classList.add("error");
       this.error.nativeElement.innerHTML = "Campo nome prodotto obbligatorio";
@@ -176,7 +171,7 @@ export class AddProductComponent implements OnInit {
         }
         setTimeout(() => {
           this.router.navigate(['../negozio'], { relativeTo: this.route });
-        }, 8000);
+        }, 4000);
       } catch (error) {
         this.error.nativeElement.classList.add("error");
         this.error.nativeElement.innerHTML = "Errore tecnico!!! Si prega di riprovare più tardi.<br> Grazie" + this.name;
