@@ -44,6 +44,8 @@ export class CartComponent implements OnInit {
   addProduct = (index: number): number => {
     this.tmpArr[index].quantity++;
     this.orderService.productsConfirmed = this.tmpArr;
+    this.appService.cart = this.orderService.productsConfirmed;
+    this.appService.changeCartLength();
     this.totalPrice = this.getTotalPrice();
     return this.tmpArr[index].quantity;
   };
@@ -52,11 +54,15 @@ export class CartComponent implements OnInit {
       if(this.tmpArr[index].quantity === 1){
        this.tmpArr.splice(index, 1);
        this.orderService.productsConfirmed = this.tmpArr;
+       this.appService.cart = this.orderService.productsConfirmed;
+       this.appService.changeCartLength();
        this.totalPrice = this.getTotalPrice();
        return null;
       }
       this.tmpArr[index].quantity--
       this.orderService.productsConfirmed = this.tmpArr;
+      this.appService.cart = this.orderService.productsConfirmed;
+      this.appService.changeCartLength();
       this.totalPrice = this.getTotalPrice();
       return this.tmpArr[index].quantity
   };

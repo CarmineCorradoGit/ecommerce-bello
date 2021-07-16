@@ -35,13 +35,18 @@ export class AppService {
       this.userRole = value;
     }) 
     this.cartLengthChange.subscribe((value)=>{
+      
       this.cartLength = value;
     })
   }
 
   
   changeCartLength() {
-    this.cartLengthChange.next(this.cart.length)
+    let temp = 0;
+    this.cart.forEach(element => {
+      temp = temp + element.quantity;
+    });
+    this.cartLengthChange.next(temp)
   }
 
   changeUserRole(user: 'user' | 'admin' | null) {

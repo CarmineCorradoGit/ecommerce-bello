@@ -67,6 +67,7 @@ ngOnDestroy(){
     element = this.appService.cart.find(element => element.id === e);
     if(element){
       element.quantity++
+      this.appService.changeCartLength();
     } else {
       element = this.products.find(element => element.id === e);
       element.quantity = 1;

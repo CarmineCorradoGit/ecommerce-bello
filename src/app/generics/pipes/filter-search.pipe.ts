@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterSearchPipe implements PipeTransform {
 
   transform(value: any, filter: string, ...args: string[]): any {
-    if(filter === null || filter === ''){
+    if(filter === null || filter === '' || filter === undefined){
       return value
     }
     filter.toLowerCase();
@@ -14,9 +14,11 @@ export class FilterSearchPipe implements PipeTransform {
     for(let item of value){
       addElem = false
       for(let props of args){
-        let tempString = item[props];
-        if(tempString.toLowerCase().includes(filter)){
-          addElem = true
+        if(item[props] !== null && item[props] !== undefined){
+          let tempString = item[props];
+          if(tempString.toLowerCase().includes(filter)){
+            addElem = true
+          }
         }
       }
       if(addElem){
