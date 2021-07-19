@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
+  userNotFound: boolean = false;
+
   constructor(private appService: AppService, private router: Router) {
     this.appService.getUsers().subscribe((res)=>{
       this.users = res;
@@ -26,19 +28,22 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(){
-    console.log('checkuser called');
+    //console.log('checkuser called');
 
     let logginUser = this.users.find(user => (user.email === this.email) && (user.password === this.password));
-    console.log(logginUser);
+    //console.log(logginUser);
     
     if(logginUser) {
-      console.log('trovato');
-      console.log(logginUser.role);
+      //console.log('trovato');
+      //console.log(logginUser.role);
+
+      this.userNotFound = false;
       this.appService.changeUserRole(logginUser.role);
       this.router.navigate(['/']);
     } else {
-      console.log('non lo trovo');
+      //console.log('non lo trovo');
       this.appService.userRole = null;
+      this.userNotFound = true;
     }
   }
 
